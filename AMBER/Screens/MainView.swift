@@ -12,9 +12,9 @@ struct MainView: View {
             Group {
                 switch appState.selectedTab {
                 case .home:         HomeHubView()
-                case .stats:        StatsPlaceholderView()
-                case .achievements: AchievementsPlaceholderView()
-                case .profile:      ProfilePlaceholderView()
+                case .stats:        StatsView()
+                case .achievements: AchievementsView()
+                case .profile:      ProfileView()
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

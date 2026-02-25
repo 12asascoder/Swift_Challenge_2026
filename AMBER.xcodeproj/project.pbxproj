@@ -10,14 +10,18 @@
 		029B5B11877FDDCEDA53C379 /* AMBERColors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4255FF21F5E05B71CBD7643B /* AMBERColors.swift */; };
 		091338A233A361587302BA1F /* FocusArenaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E31DF01CB1ED8586E820C45 /* FocusArenaViewModel.swift */; };
 		0FD8ADA8304B96463B484732 /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33A1356D2D12D328C29DDC6 /* GameCardView.swift */; };
+		171214F2D09EBADEBE04B37F /* AchievementModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BAF32F221A5ECA1BD4D52 /* AchievementModels.swift */; };
 		1BFE46A94738DAA82512E1DC /* StreakBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDDAD783FA89558DA89257 /* StreakBadge.swift */; };
+		1D758EA5731DE36E3AE5379F /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB07631065B1C04509842D0 /* StatsView.swift */; };
 		20FEE8E6CF58E1BAD7FF9E4C /* AMBERModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B40D2512FEA42779215605 /* AMBERModels.swift */; };
 		2AFAB9CA895CF30313CE7573 /* FocusArenaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635DB46354719271BD261CF2 /* FocusArenaView.swift */; };
 		347DC55E3DE3C363DCE1F28F /* AMBERTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B65A844E16062E9A74436 /* AMBERTabBar.swift */; };
 		350208A92CE9E2E165C9F27F /* AvatarMoodCheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461854A65D8531C5F15BD9C /* AvatarMoodCheckInView.swift */; };
+		3B2B951DD07603692B155270 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14606E201D2A7130BB984E /* ProfileView.swift */; };
 		3C8DB44F681D317B2C376529 /* ZenCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0E5AB898FF454220D24EE /* ZenCanvasView.swift */; };
 		429F545A8BCB4695C88F50E5 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CC030399055C43EF16624 /* DataStore.swift */; };
 		442329E0799DD0D8F8636101 /* FlowGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA45386C3BF02C3BF3602FA /* FlowGridView.swift */; };
+		4638745AEDC24BF268D3DF8D /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B1295012CF8D2E711035 /* AchievementsView.swift */; };
 		5F17DDD2904E59EE17EC8BBF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6D728E6FD8F3AB819C3FA /* MainView.swift */; };
 		691F51149EFB13C9C2B551EF /* HomeHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2DDF910842DB0D6E6B77 /* HomeHubView.swift */; };
 		90A37421309834F157877DBD /* AMBERApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698B9123593318D7229E4B2 /* AMBERApp.swift */; };
@@ -27,15 +31,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0A6BAF32F221A5ECA1BD4D52 /* AchievementModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementModels.swift; sourceTree = "<group>"; };
+		1A14606E201D2A7130BB984E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1D3B65A844E16062E9A74436 /* AMBERTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERTabBar.swift; sourceTree = "<group>"; };
 		26BA2DDF910842DB0D6E6B77 /* HomeHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHubView.swift; sourceTree = "<group>"; };
 		3BA45386C3BF02C3BF3602FA /* FlowGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowGridView.swift; sourceTree = "<group>"; };
+		3EB07631065B1C04509842D0 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		4255FF21F5E05B71CBD7643B /* AMBERColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERColors.swift; sourceTree = "<group>"; };
 		4461854A65D8531C5F15BD9C /* AvatarMoodCheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarMoodCheckInView.swift; sourceTree = "<group>"; };
 		4E31DF01CB1ED8586E820C45 /* FocusArenaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusArenaViewModel.swift; sourceTree = "<group>"; };
 		635DB46354719271BD261CF2 /* FocusArenaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusArenaView.swift; sourceTree = "<group>"; };
 		794AE9485DFA2FAD0BAF5A93 /* FlowGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowGridViewModel.swift; sourceTree = "<group>"; };
 		9353FDC2B01CE0E2204F10A7 /* AMBER.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AMBER.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9D85B1295012CF8D2E711035 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
 		A3B40D2512FEA42779215605 /* AMBERModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERModels.swift; sourceTree = "<group>"; };
 		C94CC030399055C43EF16624 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		D286A4108B2F1DAD255CDAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -58,12 +66,36 @@
 			path = FlowGrid;
 			sourceTree = "<group>";
 		};
+		2BED9884100C188951CF69AD /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				1A14606E201D2A7130BB984E /* ProfileView.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
 		3E07647AB258067E623F717B /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				9353FDC2B01CE0E2204F10A7 /* AMBER.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		4131E74EF1FD594133C4DADD /* Stats */ = {
+			isa = PBXGroup;
+			children = (
+				3EB07631065B1C04509842D0 /* StatsView.swift */,
+			);
+			path = Stats;
+			sourceTree = "<group>";
+		};
+		47FD0257AAAC431E72C11D65 /* Achievements */ = {
+			isa = PBXGroup;
+			children = (
+				9D85B1295012CF8D2E711035 /* AchievementsView.swift */,
+			);
+			path = Achievements;
 			sourceTree = "<group>";
 		};
 		4AAAB351F34FF7E642BFDB26 /* SessionSummary */ = {
@@ -111,6 +143,7 @@
 		83DE27235CF393D59A5FD243 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				0A6BAF32F221A5ECA1BD4D52 /* AchievementModels.swift */,
 				A3B40D2512FEA42779215605 /* AMBERModels.swift */,
 			);
 			path = Models;
@@ -142,11 +175,14 @@
 			isa = PBXGroup;
 			children = (
 				F0A6D728E6FD8F3AB819C3FA /* MainView.swift */,
+				47FD0257AAAC431E72C11D65 /* Achievements */,
 				19FEB1D269A0E0292890D014 /* FlowGrid */,
 				57FE06736EEF1B6B720EFFA0 /* FocusArena */,
 				D010FE15F353A9217047D97A /* HomeHub */,
 				7D27A7796621E114F9AC441A /* MoodCheckIn */,
+				2BED9884100C188951CF69AD /* Profile */,
 				4AAAB351F34FF7E642BFDB26 /* SessionSummary */,
+				4131E74EF1FD594133C4DADD /* Stats */,
 				AF857784FFA08C1303DA48A9 /* ZenCanvas */,
 			);
 			path = Screens;
@@ -247,6 +283,8 @@
 				029B5B11877FDDCEDA53C379 /* AMBERColors.swift in Sources */,
 				20FEE8E6CF58E1BAD7FF9E4C /* AMBERModels.swift in Sources */,
 				347DC55E3DE3C363DCE1F28F /* AMBERTabBar.swift in Sources */,
+				171214F2D09EBADEBE04B37F /* AchievementModels.swift in Sources */,
+				4638745AEDC24BF268D3DF8D /* AchievementsView.swift in Sources */,
 				350208A92CE9E2E165C9F27F /* AvatarMoodCheckInView.swift in Sources */,
 				429F545A8BCB4695C88F50E5 /* DataStore.swift in Sources */,
 				442329E0799DD0D8F8636101 /* FlowGridView.swift in Sources */,
@@ -256,7 +294,9 @@
 				0FD8ADA8304B96463B484732 /* GameCardView.swift in Sources */,
 				691F51149EFB13C9C2B551EF /* HomeHubView.swift in Sources */,
 				5F17DDD2904E59EE17EC8BBF /* MainView.swift in Sources */,
+				3B2B951DD07603692B155270 /* ProfileView.swift in Sources */,
 				D1451A816743CABA9979E658 /* SessionSummaryView.swift in Sources */,
+				1D758EA5731DE36E3AE5379F /* StatsView.swift in Sources */,
 				1BFE46A94738DAA82512E1DC /* StreakBadge.swift in Sources */,
 				3C8DB44F681D317B2C376529 /* ZenCanvasView.swift in Sources */,
 			);
