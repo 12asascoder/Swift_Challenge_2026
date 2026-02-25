@@ -43,6 +43,7 @@ class FocusArenaViewModel: ObservableObject {
     private var phaseDuration: Double = 5
     private var spiralAngle: Double = 0
     private var sessionElapsed: Double = 0
+    private var sessionDurationTotal: Int = 30
     private var displayLink: CADisplayLink?
     private var prevTime: CFTimeInterval = 0
     private var tapTimestamp: Date? = nil
@@ -50,9 +51,10 @@ class FocusArenaViewModel: ObservableObject {
     private var hitCount: Int = 0
 
     // MARK: - Public API
-    func start() {
+    /// difficulty: 0.0 (easiest) … 1.0 (hardest)
+    func start(difficulty: Double = 0.5) {
         guard !isRunning else { return }
-        resetState()
+        resetState(difficulty: difficulty)
         isRunning = true
         prevTime = CACurrentMediaTime()
         displayLink?.invalidate()
@@ -61,14 +63,23 @@ class FocusArenaViewModel: ObservableObject {
         displayLink = dl
     }
 
-    private func resetState() {
+    private func resetState(difficulty: Double = 0.5) {
         score = 0; multiplier = 1; combo = 0; bestCombo = 0
-        syncPercent = 0; timeLeft = 30; sessionEnded = false
+        syncPercent = 0; sessionEnded = false
         lastHit = nil; isFlowMode = false; isShrinkMode = false
         phaseElapsed = 0; phaseDuration = 5; sessionElapsed = 0
-        spiralAngle = 0; coreSize = 110; totalReactionMs = 0; hitCount = 0
+        spiralAngle = 0; totalReactionMs = 0; hitCount = 0
+        // Difficulty scaling:
+        // coreSize: larger target = easier (130 at 0.0, 90 at 1.0)
+        coreSize = CGFloat(130 - difficulty * 40)
+        // session duration: 20s at easiest, 36s at hardest
+        let sessionDuration = Int(20 + difficulty * 16)
+        timeLeft = sessionDuration
+        sessionDurationTotal = sessionDuration
+        // base velocity: slow at low difficulty, fast at high
+        let speed = 1.5 + difficulty * 2.5
+        velocity = CGVector(dx: speed * 0.85, dy: speed * 0.65)
         corePosition = CGPoint(x: bounds.width / 2, y: bounds.height * 0.38)
-        velocity = CGVector(dx: 2.5, dy: 1.8)
     }
 
     @objc private func onFrame() {
@@ -78,11 +89,11 @@ class FocusArenaViewModel: ObservableObject {
         guard isRunning, bounds.width > 0 else { return }
 
         sessionElapsed += dt
-        let remaining = max(0, 30 - Int(sessionElapsed))
+        let remaining = max(0, sessionDurationTotal - Int(sessionElapsed))
         if remaining != timeLeft {
             DispatchQueue.main.async { self.timeLeft = remaining }
         }
-        if sessionElapsed >= 30 {
+        if sessionElapsed >= Double(sessionDurationTotal) {
             endSession(); return
         }
         // Tap availability window

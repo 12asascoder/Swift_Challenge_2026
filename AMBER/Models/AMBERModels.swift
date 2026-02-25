@@ -103,6 +103,17 @@ class AppState: ObservableObject {
     /// -1 = not set, 0 = Stable, 1 = Moderate, 2 = High
     @Published var widgetStressLevel: Int = -1
 
+    /// 0.0 = easiest, 1.0 = hardest — based on daily mood
+    var gameDifficulty: Double {
+        switch selectedMood {
+        case .overwhelmed: return 0.15
+        case .low:         return 0.30
+        case .okayish:     return 0.55
+        case .energized:   return 0.80
+        case nil:          return 0.50
+        }
+    }
+
     init() {
         let today   = Calendar.current.startOfDay(for: Date())
         let lastStr = UserDefaults.standard.object(forKey: "amber_lastCheckin") as? Date

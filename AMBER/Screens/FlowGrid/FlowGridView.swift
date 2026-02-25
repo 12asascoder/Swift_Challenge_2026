@@ -39,7 +39,7 @@ struct FlowGridView: View {
         }
         .onAppear {
             vm.gridSize = gridSize
-            vm.start()
+            vm.start(difficulty: appState.gameDifficulty)
         }
         .onChange(of: vm.gridSize) { _ in }
         .onDisappear { vm.stop() }

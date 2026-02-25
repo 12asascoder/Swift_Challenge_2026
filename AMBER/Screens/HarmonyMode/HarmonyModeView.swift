@@ -30,7 +30,7 @@ struct HarmonyModeView: View {
                 difficultyRow.padding(.horizontal, 24).padding(.bottom, 30)
             }
         }
-        .onAppear { vm.startFresh() }
+        .onAppear { vm.startFresh(difficulty: appState.gameDifficulty) }
         .sheet(isPresented: $vm.solved) { solvedOverlay }
         .ignoresSafeArea()
     }
@@ -71,7 +71,6 @@ struct HarmonyModeView: View {
         VStack(spacing: 20) {
             // First row: all filled tubes (up to 4)
             let filledCount  = min(4, vm.colorCount)
-            let emptyCount   = vm.tubes.count - vm.colorCount
             let emptyStart   = vm.colorCount
 
             HStack(spacing: 16) {

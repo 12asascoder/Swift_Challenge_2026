@@ -21,6 +21,10 @@ targets:
       - path: AMBER
         excludes:
           - "**/*.md"
+          - "Resources/Music/**"
+      - path: AMBER/Resources/Music
+        type: folder
+        buildPhase: resources
     info:
       path: AMBER/Info.plist
       properties:

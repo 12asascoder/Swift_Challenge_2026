@@ -1,5 +1,7 @@
 import SwiftUI
 
+// MARK: - Zen Blocks View
+
 struct StructureModeView: View {
     @StateObject private var vm = StructureModeViewModel()
     @EnvironmentObject var appState: AppState
@@ -8,280 +10,446 @@ struct StructureModeView: View {
     // Drag state
     @State private var draggingIdx: Int? = nil
     @State private var dragLocation: CGPoint = .zero
-    @State private var dragIsOver: Bool = false
+    @State private var shakeOffset: CGFloat = 0
+    @State private var highlightCells: Set<GridPos> = []
 
-    // Grid frame in global coordinates (set from GeometryReader)
+    // Grid geometry
     @State private var gridFrame: CGRect = .zero
+
+    // Ambient particles
+    @State private var particlePhase: CGFloat = 0
+
+    struct GridPos: Hashable { let r: Int; let c: Int }
 
     var body: some View {
         ZStack {
+            // Background
             Color(hex: "0A0A07").ignoresSafeArea()
-            RadialGradient(colors: [Color.amberAccent.opacity(0.06), .clear],
-                           center: .center, startRadius: 0, endRadius: 320)
-                .ignoresSafeArea()
+            RadialGradient(
+                colors: [Color.amberAccent.opacity(0.06), .clear],
+                center: .center, startRadius: 0, endRadius: 320
+            )
+            .ignoresSafeArea()
+
+            // Ambient particles
+            ambientParticles
 
             VStack(spacing: 0) {
                 headerBar
                 Spacer(minLength: 10)
                 gridView
                 Spacer(minLength: 10)
-                stabilityBar.padding(.horizontal, 20).padding(.bottom, 12)
-                trayView.padding(.horizontal, 16).padding(.bottom, 28)
+                stabilityBar
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 12)
+                trayView
+                    .padding(.horizontal, 16)
+                    .padding(.bottom, 28)
             }
 
-            // Floating piece that follows finger
+            // Floating ghost piece during drag
             if let idx = draggingIdx, idx < vm.tray.count {
-                floatingPiece(piece: vm.tray[idx])
-                    .position(dragLocation)
-                    .allowsHitTesting(false)
-                    .zIndex(10)
+                ghostPiece(for: vm.tray[idx])
+            }
+
+            // Zen glow overlay at 100%
+            if vm.showZenGlow {
+                zenGlowOverlay
             }
         }
-        .onAppear { vm.start() }
-        .sheet(isPresented: $vm.sessionEnded) { sessionSheet }
-        .ignoresSafeArea()
+        .onAppear {
+            vm.start(difficulty: appState.gameDifficulty)
+            withAnimation(.linear(duration: 20).repeatForever(autoreverses: false)) {
+                particlePhase = 1
+            }
+        }
+        .sheet(isPresented: $vm.sessionEnded) {
+            sessionSummarySheet
+        }
+        .offset(x: shakeOffset)
     }
 
-    // MARK: - Header
+    // MARK: - Header Bar
+
     private var headerBar: some View {
         HStack {
-            Button { appState.activeGame = nil } label: {
-                Image(systemName: "xmark").foregroundColor(.white)
-                    .frame(width: 34, height: 34).background(Circle().fill(Color.amberCard))
+            Button {
+                appState.activeGame = nil
+            } label: {
+                Image(systemName: "chevron.left")
+                    .font(.system(size: 18, weight: .medium))
+                    .foregroundColor(Color.amberSubtext)
             }
+
             Spacer()
-            VStack(spacing: 2) {
-                Text("ZEN BLOCKS")
-                    .font(.system(size: 12, weight: .bold)).kerning(2.5).foregroundColor(.amberAccent)
-                Text("ZEN PROGRESS")
-                    .font(.system(size: 9)).foregroundColor(.amberSubtext).kerning(1.5)
-            }
+
+            Text("Zen Blocks")
+                .font(AMBERFont.rounded(20, weight: .semibold))
+                .foregroundColor(.white.opacity(0.85))
+
             Spacer()
-            ZStack {
-                Circle().stroke(Color.amberAccent.opacity(0.3), lineWidth: 1.5).frame(width: 34, height: 34)
-                Image(systemName: "leaf.fill").foregroundColor(.amberAccent).font(.system(size: 14))
-            }
+
+            Color.clear.frame(width: 28, height: 28)
         }
-        .padding(.horizontal, 20).padding(.top, 52).padding(.bottom, 10)
+        .padding(.horizontal, 20)
+        .padding(.top, 12)
     }
 
-    // MARK: - Grid
+    // MARK: - Grid View
+
     private var gridView: some View {
         GeometryReader { geo in
-            let cs = max(1, (geo.size.width - CGFloat(StructureModeViewModel.COLS - 1) * 2) / CGFloat(StructureModeViewModel.COLS))
-            VStack(spacing: 2) {
-                ForEach(0..<StructureModeViewModel.ROWS, id: \.self) { r in
-                    HStack(spacing: 2) {
-                        ForEach(0..<StructureModeViewModel.COLS, id: \.self) { c in
-                            let placed = vm.grid[r][c]
-                            ZStack {
-                                RoundedRectangle(cornerRadius: 3)
-                                    .fill(placed != nil
-                                          ? AnyShapeStyle(placed!)
-                                          : AnyShapeStyle(Color(hex: "181811")))
-                                    .overlay(RoundedRectangle(cornerRadius: 3)
-                                        .stroke(Color.amberCardBorder.opacity(0.3), lineWidth: 0.5))
-                                    .shadow(color: placed != nil ? placed!.opacity(0.3) : .clear, radius: 3)
-                            }
-                            .frame(width: cs, height: cs)
+            let pad: CGFloat = 6
+            let spacing: CGFloat = 2
+            let availableW = geo.size.width - pad * 2
+            let cs = max(1, (availableW - CGFloat(GridEngine.cols - 1) * spacing) / CGFloat(GridEngine.cols))
+            let totalW = CGFloat(GridEngine.cols) * cs + CGFloat(GridEngine.cols - 1) * spacing + pad * 2
+            let totalH = CGFloat(GridEngine.rows) * cs + CGFloat(GridEngine.rows - 1) * spacing + pad * 2
+
+            VStack(spacing: spacing) {
+                ForEach(0..<GridEngine.rows, id: \.self) { row in
+                    HStack(spacing: spacing) {
+                        ForEach(0..<GridEngine.cols, id: \.self) { col in
+                            cellView(row: row, col: col, size: cs)
                         }
                     }
                 }
             }
-            .padding(6)
+            .padding(pad)
             .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(Color(hex: "111108"))
-                    .overlay(RoundedRectangle(cornerRadius: 16)
-                        .stroke(
-                            dragIsOver ? Color.amberAccent.opacity(0.6) : Color.amberCardBorder.opacity(0.5),
-                            lineWidth: dragIsOver ? 1.5 : 1
-                        ))
-                    // Capture global frame of the grid content area
-                    .background(
-                        GeometryReader { g in
-                            Color.clear.onAppear {
-                                gridFrame = g.frame(in: .global)
-                            }
-                            .onChange(of: geo.size) { _ in
-                                gridFrame = g.frame(in: .global)
-                            }
-                        }
+                RoundedRectangle(cornerRadius: 14)
+                    .fill(Color(hex: "111110"))
+                    .overlay(
+                        RoundedRectangle(cornerRadius: 14)
+                            .stroke(Color.amberAccent.opacity(0.12), lineWidth: 1)
                     )
             )
+            .frame(width: totalW, height: totalH)
+            .background(
+                GeometryReader { inner in
+                    Color.clear
+                        .onAppear { gridFrame = inner.frame(in: .global) }
+                        .onChange(of: geo.size) { _ in
+                            gridFrame = inner.frame(in: .global)
+                        }
+                }
+            )
+            .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
         }
-        .frame(height: gridHeight)
+        .aspectRatio(1, contentMode: .fit)
         .padding(.horizontal, 16)
     }
 
-    private var gridHeight: CGFloat {
-        let screenW = UIScreen.main.bounds.width - 32
-        let cs = max(1, (screenW - CGFloat(StructureModeViewModel.COLS - 1) * 2) / CGFloat(StructureModeViewModel.COLS))
-        return cs * CGFloat(StructureModeViewModel.ROWS) + CGFloat(StructureModeViewModel.ROWS - 1) * 2 + 12
+    private func cellView(row: Int, col: Int, size: CGFloat) -> some View {
+        let cell: GridCell = {
+            guard vm.grid.indices.contains(row),
+                  vm.grid[row].indices.contains(col) else { return GridCell() }
+            return vm.grid[row][col]
+        }()
+        let lit = highlightCells.contains(GridPos(r: row, c: col))
+
+        return RoundedRectangle(cornerRadius: 3)
+            .fill(cellFill(cell, lit: lit))
+            .frame(width: size, height: size)
+            .overlay(
+                RoundedRectangle(cornerRadius: 3)
+                    .stroke(cellStroke(cell, lit: lit), lineWidth: 0.5)
+            )
+            .opacity(cell.isClearing ? 0.3 : 1.0)
+            .animation(.easeOut(duration: 0.25), value: cell.isClearing)
     }
 
-    // MARK: - Stability bar
+    private func cellFill(_ cell: GridCell, lit: Bool) -> Color {
+        if cell.isClearing { return Color.amberAccent.opacity(0.6) }
+        if cell.isOccupied { return cell.color ?? Color.amberAccent.opacity(0.7) }
+        if lit { return Color.amberAccent.opacity(0.18) }
+        return Color(hex: "1A1A12")
+    }
+
+    private func cellStroke(_ cell: GridCell, lit: Bool) -> Color {
+        if cell.isClearing { return Color.amberAccent.opacity(0.8) }
+        if cell.isOccupied { return (cell.color ?? Color.amberAccent).opacity(0.4) }
+        if lit { return Color.amberAccent.opacity(0.3) }
+        return Color(hex: "2E2D1A").opacity(0.5)
+    }
+
+    // MARK: - Zen Progress Bar
+
     private var stabilityBar: some View {
-        VStack(alignment: .leading, spacing: 6) {
+        VStack(spacing: 6) {
             HStack {
-                Text("ZEN PROGRESS")
-                    .font(.system(size: 10, weight: .bold)).kerning(2).foregroundColor(.amberSubtext)
+                Text("Zen")
+                    .font(AMBERFont.mono(11, weight: .medium))
+                    .foregroundColor(Color.amberSubtext)
                 Spacer()
-                Text("\(Int(vm.stability * 100))%")
-                    .font(AMBERFont.mono(12, weight: .bold)).foregroundColor(.amberAccent)
+                Text("\(Int(vm.zenProgress * 100))%")
+                    .font(AMBERFont.mono(11, weight: .semibold))
+                    .foregroundColor(Color.amberAccent)
             }
-            GeometryReader { g in
+
+            GeometryReader { geo in
                 ZStack(alignment: .leading) {
-                    RoundedRectangle(cornerRadius: 3).fill(Color(hex: "222215")).frame(height: 6)
-                    if g.size.width > 0 {
-                        RoundedRectangle(cornerRadius: 3)
-                            .fill(LinearGradient(colors: [Color.amberAccentDim, Color.amberAccent],
-                                                 startPoint: .leading, endPoint: .trailing))
-                            .frame(width: max(0, g.size.width * vm.stability), height: 6)
-                            .animation(.easeOut(duration: 0.4), value: vm.stability)
-                    }
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(Color(hex: "1A1A12"))
+                        .frame(height: 8)
+
+                    RoundedRectangle(cornerRadius: 4)
+                        .fill(
+                            LinearGradient(
+                                colors: [Color.amberAccentDim, Color.amberAccent],
+                                startPoint: .leading,
+                                endPoint: .trailing
+                            )
+                        )
+                        .frame(
+                            width: geo.size.width * CGFloat(vm.zenProgress),
+                            height: 8
+                        )
+                        .animation(.easeInOut(duration: 0.4), value: vm.zenProgress)
                 }
             }
-            .frame(height: 6)
+            .frame(height: 8)
         }
     }
 
-    // MARK: - Tray
+    // MARK: - Tray View
+
     private var trayView: some View {
-        HStack(spacing: 14) {
-            ForEach(Array(vm.tray.enumerated()), id: \.element.id) { idx, piece in
-                ZStack {
-                    pieceCard(piece: piece, idx: idx)
+        HStack(spacing: 20) {
+            ForEach(Array(vm.tray.enumerated()), id: \.element.id) { idx, block in
+                VStack(spacing: 8) {
+                    blockPreview(block)
                         .opacity(draggingIdx == idx ? 0.3 : 1.0)
+                        .gesture(dragGesture(for: idx))
 
-                    // Rotate button overlay
-                    VStack {
-                        HStack {
-                            Spacer()
-                            Button { vm.rotatePiece(at: idx) } label: {
-                                Image(systemName: "arrow.clockwise")
-                                    .font(.system(size: 10, weight: .bold))
-                                    .foregroundColor(.amberSubtext)
-                                    .padding(5)
-                                    .background(Circle().fill(Color.amberBG))
-                            }
+                    Button {
+                        withAnimation(.easeInOut(duration: 0.15)) {
+                            vm.rotatePiece(at: idx)
                         }
-                        Spacer()
-                    }
-                    .padding(4)
-                }
-                .gesture(
-                    DragGesture(minimumDistance: 4, coordinateSpace: .global)
-                        .onChanged { val in
-                            if draggingIdx == nil { draggingIdx = idx }
-                            dragLocation = val.location
-                            dragIsOver = gridFrame.contains(val.location)
-                        }
-                        .onEnded { val in
-                            handleDrop(pieceIdx: idx, at: val.location)
-                            draggingIdx = nil
-                            dragIsOver  = false
-                        }
-                )
-            }
-        }
-    }
-
-    // MARK: - Piece card (in tray)
-    private func pieceCard(piece: BlockPiece, idx: Int) -> some View {
-        let maxDim = max(piece.width, piece.height)
-        let cs: CGFloat = maxDim <= 2 ? 22 : 18
-        return VStack(spacing: 2) {
-            ForEach(0..<piece.height, id: \.self) { r in
-                HStack(spacing: 2) {
-                    ForEach(0..<piece.width, id: \.self) { c in
-                        RoundedRectangle(cornerRadius: 3)
-                            .fill(piece.cells[r][c] ? AnyShapeStyle(piece.color) : AnyShapeStyle(Color.clear))
-                            .frame(width: cs, height: cs)
+                    } label: {
+                        Image(systemName: "arrow.triangle.2.circlepath")
+                            .font(.system(size: 12, weight: .medium))
+                            .foregroundColor(Color.amberSubtext)
                     }
                 }
             }
         }
-        .padding(12)
-        .frame(maxWidth: .infinity, minHeight: 72)
+        .padding(.vertical, 14)
+        .padding(.horizontal, 20)
         .background(
             RoundedRectangle(cornerRadius: 16)
-                .fill(Color.amberCard)
-                .overlay(RoundedRectangle(cornerRadius: 16)
-                    .stroke(Color.amberCardBorder, lineWidth: 1))
+                .fill(Color(hex: "131310").opacity(0.9))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 16)
+                        .stroke(Color(hex: "2E2D1A").opacity(0.4), lineWidth: 1)
+                )
         )
     }
 
-    // MARK: - Floating piece (drag ghost)
-    private func floatingPiece(piece: BlockPiece) -> some View {
-        let cs: CGFloat = 28
-        return VStack(spacing: 2) {
-            ForEach(0..<piece.height, id: \.self) { r in
-                HStack(spacing: 2) {
-                    ForEach(0..<piece.width, id: \.self) { c in
-                        RoundedRectangle(cornerRadius: 4)
-                            .fill(piece.cells[r][c]
-                                  ? AnyShapeStyle(piece.color)
-                                  : AnyShapeStyle(Color.clear))
-                            .frame(width: cs, height: cs)
-                            .shadow(color: piece.color.opacity(0.5), radius: 5)
+    private func blockPreview(_ block: Block) -> some View {
+        let s: CGFloat = 14
+        let sp: CGFloat = 2
+        return VStack(spacing: sp) {
+            ForEach(0..<block.height, id: \.self) { r in
+                HStack(spacing: sp) {
+                    ForEach(0..<block.width, id: \.self) { c in
+                        if block.shape[r][c] == 1 {
+                            RoundedRectangle(cornerRadius: 2)
+                                .fill(block.color.opacity(0.85))
+                                .frame(width: s, height: s)
+                        } else {
+                            Color.clear.frame(width: s, height: s)
+                        }
                     }
                 }
             }
         }
-        .scaleEffect(1.15)
     }
 
-    // MARK: - Drop handler
-    private func handleDrop(pieceIdx: Int, at location: CGPoint) {
-        guard gridFrame.width > 0, gridFrame.height > 0,
-              gridFrame.contains(location),
-              pieceIdx < vm.tray.count else { return }
+    // MARK: - Drag Gesture
 
-        // Convert global location → grid row/col
-        let localX = location.x - gridFrame.minX - 6  // subtract padding
-        let localY = location.y - gridFrame.minY - 6
-        let cs = (gridFrame.width - 12 - CGFloat(StructureModeViewModel.COLS - 1) * 2) / CGFloat(StructureModeViewModel.COLS)
-        guard cs > 0 else { return }
+    private func dragGesture(for idx: Int) -> some Gesture {
+        DragGesture(coordinateSpace: .global)
+            .onChanged { value in
+                draggingIdx = idx
+                dragLocation = value.location
+                updateHighlight(for: idx, at: value.location)
+            }
+            .onEnded { value in
+                attemptDrop(idx: idx, at: value.location)
+                draggingIdx = nil
+                highlightCells = []
+            }
+    }
 
-        let piece = vm.tray[pieceIdx]
-        let dropCol = max(0, min(StructureModeViewModel.COLS - piece.width,  Int(localX / (cs + 2))))
-        let dropRow = max(0, min(StructureModeViewModel.ROWS - piece.height, Int(localY / (cs + 2))))
-
-        withAnimation(.spring(response: 0.2)) {
-            vm.tryPlace(pieceIdx: pieceIdx, gridRow: dropRow, gridCol: dropCol)
+    private func updateHighlight(for idx: Int, at loc: CGPoint) {
+        guard idx < vm.tray.count else {
+            highlightCells = []
+            return
         }
-    }
+        let block = vm.tray[idx]
+        guard let snap = GridEngine.snapToGrid(
+            location: loc,
+            gridFrame: gridFrame,
+            block: block
+        ) else {
+            highlightCells = []
+            return
+        }
 
-    // MARK: - Session summary
-    private var sessionSheet: some View {
-        ZStack {
-            Color(hex: "0A0A07").ignoresSafeArea()
-            VStack(spacing: 22) {
-                Text("✦ Session Complete")
-                    .font(.system(size: 22, weight: .black)).foregroundColor(.white).padding(.top, 40)
-                Text(String(format: "Zen Progress: %.0f%%", vm.stability * 100))
-                    .font(.system(size: 18, weight: .semibold)).foregroundColor(.amberAccent)
-                HStack(spacing: 12) {
-                    Button { vm.sessionEnded = false; vm.start() } label: {
-                        Text("Play Again")
-                            .font(.system(size: 15, weight: .bold)).foregroundColor(.black)
-                            .frame(maxWidth: .infinity, minHeight: 48)
-                            .background(RoundedRectangle(cornerRadius: 14).fill(Color.amberAccent))
-                    }
-                    Button { vm.sessionEnded = false; appState.activeGame = nil } label: {
-                        Text("Exit")
-                            .font(.system(size: 15, weight: .semibold)).foregroundColor(.white)
-                            .frame(maxWidth: .infinity, minHeight: 48)
-                            .background(RoundedRectangle(cornerRadius: 14)
-                                .fill(Color.amberCard)
-                                .overlay(RoundedRectangle(cornerRadius: 14).stroke(Color.amberCardBorder)))
-                    }
+        var cells = Set<GridPos>()
+        if GridEngine.canPlace(block, at: snap.row, col: snap.col, in: vm.grid) {
+            for r in 0..<block.height {
+                for c in 0..<block.width where block.shape[r][c] == 1 {
+                    cells.insert(GridPos(r: snap.row + r, c: snap.col + c))
                 }
-                .padding(.horizontal, 30)
-                Spacer()
             }
         }
+        highlightCells = cells
+    }
+
+    private func attemptDrop(idx: Int, at loc: CGPoint) {
+        guard idx < vm.tray.count else { return }
+        let block = vm.tray[idx]
+        guard let snap = GridEngine.snapToGrid(
+            location: loc,
+            gridFrame: gridFrame,
+            block: block
+        ) else {
+            triggerShake()
+            return
+        }
+
+        let placed = vm.tryPlace(pieceIdx: idx, gridRow: snap.row, gridCol: snap.col)
+        if !placed {
+            triggerShake()
+        }
+    }
+
+    private func triggerShake() {
+        withAnimation(.easeInOut(duration: 0.06).repeatCount(4, autoreverses: true)) {
+            shakeOffset = 6
+        }
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
+            withAnimation(.easeOut(duration: 0.1)) {
+                shakeOffset = 0
+            }
+        }
+    }
+
+    // MARK: - Ghost Piece
+
+    private func ghostPiece(for block: Block) -> some View {
+        let s: CGFloat = 24
+        let sp: CGFloat = 2
+        return VStack(spacing: sp) {
+            ForEach(0..<block.height, id: \.self) { r in
+                HStack(spacing: sp) {
+                    ForEach(0..<block.width, id: \.self) { c in
+                        if block.shape[r][c] == 1 {
+                            RoundedRectangle(cornerRadius: 3)
+                                .fill(block.color.opacity(0.6))
+                                .frame(width: s, height: s)
+                        } else {
+                            Color.clear.frame(width: s, height: s)
+                        }
+                    }
+                }
+            }
+        }
+        .position(dragLocation)
+        .allowsHitTesting(false)
+    }
+
+    // MARK: - Zen Glow Overlay
+
+    private var zenGlowOverlay: some View {
+        Color.amberAccent.opacity(0.08)
+            .ignoresSafeArea()
+            .allowsHitTesting(false)
+            .transition(.opacity)
+    }
+
+    // MARK: - Ambient Particles
+
+    private var ambientParticles: some View {
+        Canvas { context, size in
+            let count = 25
+            let phase: Double = Double(particlePhase)
+            let w: Double = Double(size.width)
+            let h: Double = Double(size.height)
+
+            for i in 0..<count {
+                let seed: Double = Double(i) / Double(count)
+                let angX: Double = seed * .pi * 4 + phase * .pi * 2
+                let angY: Double = seed * .pi * 3 + phase * .pi * 2 * 0.7
+                let x: CGFloat = CGFloat((sin(angX) * 0.5 + 0.5) * w)
+                let y: CGFloat = CGFloat((cos(angY) * 0.5 + 0.5) * h)
+                let radius: CGFloat = CGFloat(2.0 + seed * 3.0)
+                let alpha: Double = 0.04 + seed * 0.06
+                let rect = CGRect(
+                    x: x - radius, y: y - radius,
+                    width: radius * 2, height: radius * 2
+                )
+                context.opacity = alpha
+                context.fill(Path(ellipseIn: rect), with: .color(Color.amberAccent))
+            }
+        }
+        .ignoresSafeArea()
+        .allowsHitTesting(false)
+    }
+
+    // MARK: - Session Summary Sheet
+
+    private var sessionSummarySheet: some View {
+        VStack(spacing: 28) {
+            Text("Session Complete")
+                .font(AMBERFont.rounded(24, weight: .bold))
+                .foregroundColor(.white)
+
+            VStack(spacing: 16) {
+                summaryRow(label: "Lines Cleared", value: "\(vm.linesCleared)")
+                summaryRow(
+                    label: "Clean Placement",
+                    value: "\(Int(vm.cleanPlacementPercent * 100))%"
+                )
+                summaryRow(label: "Duration", value: vm.sessionDurationFormatted)
+                summaryRow(label: "Zen Progress", value: "\(Int(vm.zenProgress * 100))%")
+            }
+
+            Button {
+                vm.sessionEnded = false
+                appState.completeSession(
+                    score: vm.linesCleared * 10,
+                    xp: vm.linesCleared * 5
+                )
+            } label: {
+                Text("Done")
+                    .font(AMBERFont.rounded(16, weight: .semibold))
+                    .foregroundColor(.black)
+                    .frame(maxWidth: .infinity)
+                    .padding(.vertical, 14)
+                    .background(
+                        RoundedRectangle(cornerRadius: 12)
+                            .fill(Color.amberAccent)
+                    )
+            }
+            .padding(.top, 8)
+        }
+        .padding(28)
+        .background(Color(hex: "111110").ignoresSafeArea())
         .presentationDetents([.medium])
+    }
+
+    private func summaryRow(label: String, value: String) -> some View {
+        HStack {
+            Text(label)
+                .font(AMBERFont.mono(14))
+                .foregroundColor(Color.amberSubtext)
+            Spacer()
+            Text(value)
+                .font(AMBERFont.mono(16, weight: .semibold))
+                .foregroundColor(.white)
+        }
     }
 }

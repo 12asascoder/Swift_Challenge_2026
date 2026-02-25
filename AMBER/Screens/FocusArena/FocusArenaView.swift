@@ -224,7 +224,7 @@ struct FocusArenaView: View {
     private func handleTap(at point: CGPoint, geo: GeometryProxy) {
         if !vm.isRunning {
             vm.bounds = geo.size
-            vm.start(); return
+            vm.start(difficulty: appState.gameDifficulty); return
         }
         vm.tap(at: point)
         ripplePos = point

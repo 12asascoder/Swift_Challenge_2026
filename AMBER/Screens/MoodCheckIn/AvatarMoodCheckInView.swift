@@ -59,7 +59,16 @@ struct AvatarMoodCheckInView: View {
                 bottomBar
             }
         }
-        .onAppear { bounce = true; AudioManager.shared.playBackground() }
+        .onAppear {
+            bounce = true
+            AudioManager.shared.playBackground()
+        }
+        .onDisappear {
+            // If user is sad/overwhelmed, keep calm music going at lower volume
+            if let mood = selectedMood, mood == .low || mood == .overwhelmed {
+                AudioManager.shared.playCalmLoop(volume: 0.35)
+            }
+        }
 
     }
 

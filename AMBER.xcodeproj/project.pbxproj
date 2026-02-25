@@ -34,6 +34,7 @@
 		691F51149EFB13C9C2B551EF /* HomeHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2DDF910842DB0D6E6B77 /* HomeHubView.swift */; };
 		6CF1B83F8EF3FF96F658B73C /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A776F0321D9BE7983E52C6 /* AudioManager.swift */; };
 		70F30904FBDB1D61A14E1F98 /* StructureModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8187A1A58BB982ED701CF25 /* StructureModeViewModel.swift */; };
+		88DF6834007EDC98EEFD402B /* Music in Resources */ = {isa = PBXBuildFile; fileRef = DCA37CB11AEF057F42393CB9 /* Music */; };
 		90A37421309834F157877DBD /* AMBERApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698B9123593318D7229E4B2 /* AMBERApp.swift */; };
 		9C957DB1B309B3FD7552F289 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7E77922B7CDC4E767E9185 /* SwiftUI.framework */; };
 		D1451A816743CABA9979E658 /* SessionSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB8B7110380DC7BCE2BB69 /* SessionSummaryView.swift */; };
@@ -99,6 +100,7 @@
 		D698B9123593318D7229E4B2 /* AMBERApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERApp.swift; sourceTree = "<group>"; };
 		DA60D3AC3A8AC232A33B235C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
 		DC36D316BDFA30D4A9839CF5 /* StructureModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureModeView.swift; sourceTree = "<group>"; };
+		DCA37CB11AEF057F42393CB9 /* Music */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Music; path = AMBER/Resources/Music; sourceTree = SOURCE_ROOT; };
 		E2EB8B7110380DC7BCE2BB69 /* SessionSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSummaryView.swift; sourceTree = "<group>"; };
 		E33A1356D2D12D328C29DDC6 /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardView.swift; sourceTree = "<group>"; };
 		E3CFCB43EB835867A2822FB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -270,6 +272,7 @@
 		8AFB1EF96B9CC7F1D6B13073 = {
 			isa = PBXGroup;
 			children = (
+				DCA37CB11AEF057F42393CB9 /* Music */,
 				85442BA5A09F8AF21D90D3B0 /* AMBER */,
 				B6030AE69E54FB6910ED57D8 /* AMBERWidget */,
 				469A33C643451552E3F6A317 /* Frameworks */,
@@ -334,7 +337,7 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		"TEMP_62A7C36A-7C89-4F0B-8C9E-0B4839D5750A" /* Resources */ = {
+		"TEMP_AB35ED14-5F73-46D7-A5DF-476970F6B23C" /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -417,6 +420,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D729C0DA87401E8DF4B3EB2C /* Assets.xcassets in Resources */,
+				88DF6834007EDC98EEFD402B /* Music in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

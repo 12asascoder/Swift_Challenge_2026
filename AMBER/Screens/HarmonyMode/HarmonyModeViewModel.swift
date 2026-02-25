@@ -28,10 +28,12 @@ class HarmonyModeViewModel: ObservableObject {
     @Published var solveCount: Int = 0
 
     // MARK: - Setup
-    func startFresh() {
+    /// difficulty: 0.0 (easiest) … 1.0 (hardest)
+    func startFresh(difficulty: Double = 0.5) {
         solveCount = 0
-        colorCount = 3
-        buildPuzzle(colors: 3)
+        // Map difficulty → starting color count: 2 (easy), 3 (medium), 4 (hard)
+        colorCount = difficulty < 0.35 ? 2 : difficulty < 0.65 ? 3 : 4
+        buildPuzzle(colors: colorCount)
     }
 
     func nextPuzzle() {

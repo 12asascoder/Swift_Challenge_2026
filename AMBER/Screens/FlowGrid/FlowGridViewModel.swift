@@ -38,14 +38,18 @@ class FlowGridViewModel: ObservableObject {
     private var windowTimer: Timer? = nil
 
     // MARK: - Entry point
-    func start() {
+    /// difficulty: 0.0 (easiest) … 1.0 (hardest)
+    func start(difficulty: Double = 0.5) {
         generation += 1
         flowSync = 0
         cycleCount = 0
         streak = 0
         missCount = 0
-        patternLength = min(3, gridSize * gridSize - 1)
-        beatInterval = 0.88
+        // Difficulty scaling:
+        // pattern length: 2 at easiest → 4 at hardest (capped by grid)
+        patternLength = min(max(2, Int(2 + difficulty * 2)), gridSize * gridSize - 1)
+        // beat interval: slow (1.10s) for low difficulty, fast (0.65s) for high
+        beatInterval = 1.10 - difficulty * 0.45
         buildAndWatch()
     }
 
