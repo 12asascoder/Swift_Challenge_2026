@@ -103,12 +103,6 @@ struct AchievementsView: View {
                     value: "\(dataStore.completedCount)/\(DataStore.buildAchievements(from: dataStore).count)",
                     progress: Double(dataStore.completedCount) / max(1, Double(DataStore.buildAchievements(from: dataStore).count))
                 )
-                MiniProfileStat(
-                    label: "GLOBAL RANK",
-                    value: "#\(max(1, 1204 - dataStore.xp / 10))",
-                    delta: "+12%",
-                    subtitle: "Top 5% of all users"
-                )
             }
         }
         .padding(20)

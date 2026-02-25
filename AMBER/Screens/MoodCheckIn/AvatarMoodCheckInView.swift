@@ -2,111 +2,195 @@ import SwiftUI
 
 struct AvatarMoodCheckInView: View {
     @EnvironmentObject var appState: AppState
-    @State private var bounce  = false
+    @State private var bounce        = false
     @State private var selectedMood: MoodType? = nil
-    @State private var reacting = false
+    @State private var reacting      = false
     @State private var dialogueIndex = 0
 
     private let dialogues = [
-        "Hey superstar ✨ How's your vibe today?",
+        "Hey superstar ✨ How's your\nvibe today?",
         "Brain feeling spicy 🌶 or sleepy 💤?",
-        "Mood check! Are we glowing or grumbling?",
+        "Mood check! Glowing or grumbling?",
         "Energy level: Hero mode or potato mode?"
     ]
 
+    // Emoji that reacts to selected mood
+    private var moodEmoji: String {
+        switch selectedMood {
+        case .energized:   return "😁"
+        case .okayish:     return "😊"
+        case .low:         return "😔"
+        case .overwhelmed: return "🤯"
+        case nil:          return "😊"
+        }
+    }
+
     var body: some View {
         ZStack {
-            Color.amberBG.ignoresSafeArea()
+            Color(hex: "0F0E0A").ignoresSafeArea()
+
             VStack(spacing: 0) {
-                // Nav bar
-                HStack {
-                    Button { appState.completeMoodCheckIn(mood: .okayish) } label: {
-                        Image(systemName: "xmark")
-                            .font(.system(size: 18, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    Spacer()
-                    VStack(spacing: 2) {
-                        Text("AMBER AI")
-                            .font(.system(size: 11, weight: .bold))
-                            .foregroundColor(.amberAccent)
-                            .kerning(1.5)
-                        Text("Daily Check-in")
-                            .font(.system(size: 15, weight: .semibold))
-                            .foregroundColor(.white)
-                    }
-                    Spacer()
-                    Image(systemName: "gearshape.fill")
-                        .font(.system(size: 18))
-                        .foregroundColor(.amberSubtext)
-                }
-                .padding(.horizontal, 20)
-                .padding(.top, 16)
-                .padding(.bottom, 20)
+                navBar
 
-                // Speech bubble
-                ZStack(alignment: .bottomLeading) {
-                    RoundedRectangle(cornerRadius: 16)
-                        .fill(Color.amberAccent)
-                        .frame(maxWidth: .infinity)
-                    Text(dialogues[dialogueIndex])
-                        .font(.system(size: 18, weight: .bold))
-                        .foregroundColor(.black)
-                        .multilineTextAlignment(.center)
-                        .padding(18)
-                }
-                .frame(maxWidth: .infinity)
-                .padding(.horizontal, 20)
-                .onTapGesture {
-                    withAnimation { dialogueIndex = (dialogueIndex + 1) % dialogues.count }
-                }
+                // Greeting card (amber bg, dark text)
+                greetingCard
+                    .padding(.horizontal, 20)
+                    .padding(.top, 16)
 
-                // Avatar
-                ZStack {
-                    RoundedRectangle(cornerRadius: 20)
-                        .fill(Color(hex: "A8D8EA"))
-                        .frame(width: 200, height: 180)
-                    Text("😊")
-                        .font(.system(size: 110))
-                        .scaleEffect(bounce ? 1.08 : 1.0)
-                        .scaleEffect(reacting ? 1.3 : 1.0)
-                        .animation(.easeInOut(duration: 0.7).repeatForever(autoreverses: true), value: bounce)
-                        .animation(.spring(response: 0.3, dampingFraction: 0.5), value: reacting)
-                }
-                .padding(.vertical, 20)
-                .onAppear { bounce = true }
+                // 3D emoji preview box
+                emojiBox
+                    .padding(.top, 18)
 
-                // Vibe label
+                // SELECT YOUR VIBE label
                 Text("SELECT YOUR VIBE")
-                    .font(.system(size: 12, weight: .bold))
+                    .font(.system(size: 11, weight: .bold))
                     .foregroundColor(.amberAccent)
-                    .kerning(2)
-                    .padding(.bottom, 12)
+                    .kerning(2.5)
+                    .padding(.top, 22)
+                    .padding(.bottom, 14)
 
-                // Mood grid
-                LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: 12) {
-                    ForEach(MoodType.allCases) { mood in
-                        MoodButtonView(mood: mood, isSelected: selectedMood == mood) {
-                            withAnimation(.spring()) {
-                                selectedMood = mood
-                                reacting = true
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.4) {
-                                reacting = false
-                            }
-                            DispatchQueue.main.asyncAfter(deadline: .now() + 0.9) {
-                                appState.completeMoodCheckIn(mood: mood)
-                            }
-                        }
-                    }
+                // 2 × 2 mood grid
+                moodGrid
+                    .padding(.horizontal, 20)
+
+                Spacer(minLength: 16)
+
+                // Bottom tab bar mimic (cosmetic, matches design reference)
+                bottomBar
+            }
+        }
+        .onAppear { bounce = true; AudioManager.shared.playBackground() }
+
+    }
+
+    // MARK: - Nav bar
+    private var navBar: some View {
+        HStack {
+            Button {
+                appState.completeMoodCheckIn(mood: .okayish)
+            } label: {
+                ZStack {
+                    Circle().stroke(Color.amberAccent.opacity(0.6), lineWidth: 1.5)
+                        .frame(width: 32, height: 32)
+                    Image(systemName: "xmark")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundColor(.amberAccent)
                 }
+            }
+            Spacer()
+            VStack(spacing: 1) {
+                Text("AMBER AI")
+                    .font(.system(size: 10, weight: .bold)).kerning(2)
+                    .foregroundColor(.amberAccent)
+                Text("Daily Check-in")
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundColor(.white)
+            }
+            Spacer()
+            ZStack {
+                Circle().stroke(Color.amberAccent.opacity(0.6), lineWidth: 1.5)
+                    .frame(width: 32, height: 32)
+                Image(systemName: "gearshape.fill")
+                    .font(.system(size: 13))
+                    .foregroundColor(.amberAccent)
+            }
+        }
+        .padding(.horizontal, 20)
+        .padding(.top, 14)
+        .padding(.bottom, 4)
+    }
+
+    // MARK: - Greeting card
+    private var greetingCard: some View {
+        ZStack(alignment: .bottomLeading) {
+            RoundedRectangle(cornerRadius: 20)
+                .fill(Color(hex: "E8A020"))
+            Text(dialogues[dialogueIndex])
+                .font(.system(size: 22, weight: .bold))
+                .foregroundColor(Color(hex: "1A1200"))
+                .multilineTextAlignment(.center)
                 .padding(.horizontal, 20)
-                Spacer(minLength: 20)
+                .padding(.vertical, 24)
+                .frame(maxWidth: .infinity)
+        }
+        .frame(maxWidth: .infinity, minHeight: 110)
+        .onTapGesture {
+            withAnimation(.easeInOut(duration: 0.2)) {
+                dialogueIndex = (dialogueIndex + 1) % dialogues.count
             }
         }
     }
+
+    // MARK: - Emoji preview box
+    private var emojiBox: some View {
+        ZStack {
+            RoundedRectangle(cornerRadius: 24)
+                .fill(Color(hex: "87CEDC"))
+                .frame(width: 220, height: 195)
+            Text(moodEmoji)
+                .font(.system(size: 120))
+                .scaleEffect(bounce   ? 1.06 : 1.0)
+                .scaleEffect(reacting ? 1.25 : 1.0)
+                .animation(.easeInOut(duration: 0.9).repeatForever(autoreverses: true), value: bounce)
+                .animation(.spring(response: 0.3, dampingFraction: 0.45), value: reacting)
+        }
+    }
+
+    // MARK: - 2×2 Mood grid
+    private var moodGrid: some View {
+        LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible(), spacing: 12)],
+                  spacing: 12) {
+            ForEach(MoodType.allCases) { mood in
+                MoodButtonView(mood: mood, isSelected: selectedMood == mood) {
+                    withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
+                        selectedMood = mood
+                        reacting     = true
+                    }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) { reacting = false }
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.85) {
+                        appState.completeMoodCheckIn(mood: mood)
+                    }
+                }
+            }
+        }
+    }
+
+    // MARK: - Cosmetic bottom tab bar
+    private var bottomBar: some View {
+        HStack(spacing: 0) {
+            tabItem(icon: "house.fill",   label: "HOME",     active: false)
+            tabItem(icon: "sparkles",     label: "MOOD",     active: false)
+            // Centre FAB
+            ZStack {
+                Circle().fill(Color.amberAccent).frame(width: 54, height: 54)
+                    .shadow(color: Color.amberAccent.opacity(0.5), radius: 8)
+                Image(systemName: "plus")
+                    .font(.system(size: 22, weight: .bold)).foregroundColor(.black)
+            }
+            .frame(maxWidth: .infinity)
+            tabItem(icon: "chart.bar.fill", label: "INSIGHTS", active: false)
+            tabItem(icon: "person.fill",    label: "PROFILE",  active: false)
+        }
+        .padding(.horizontal, 10)
+        .padding(.bottom, 20)
+        .padding(.top, 8)
+        .background(Color(hex: "141209"))
+    }
+
+    private func tabItem(icon: String, label: String, active: Bool) -> some View {
+        VStack(spacing: 3) {
+            Image(systemName: icon)
+                .font(.system(size: 19))
+                .foregroundColor(active ? .amberAccent : Color.gray.opacity(0.7))
+            Text(label)
+                .font(.system(size: 8, weight: .semibold)).kerning(0.5)
+                .foregroundColor(active ? .amberAccent : Color.gray.opacity(0.6))
+        }
+        .frame(maxWidth: .infinity)
+    }
 }
 
+// MARK: - Mood button card
 struct MoodButtonView: View {
     let mood: MoodType
     let isSelected: Bool
@@ -115,22 +199,23 @@ struct MoodButtonView: View {
     var body: some View {
         Button(action: onTap) {
             VStack(spacing: 10) {
-                Text(mood.emoji)
-                    .font(.system(size: 36))
+                Text(mood.emoji).font(.system(size: 38))
                 Text(mood.label)
                     .font(.system(size: 14, weight: .semibold))
-                    .foregroundColor(.white)
+                    .foregroundColor(isSelected ? .amberAccent : .white)
             }
             .frame(maxWidth: .infinity)
             .padding(.vertical, 22)
             .background(
-                RoundedRectangle(cornerRadius: 16)
-                    .fill(isSelected ? Color.amberAccent.opacity(0.2) : Color.amberCard)
+                RoundedRectangle(cornerRadius: 18)
+                    .fill(Color(hex: isSelected ? "2A1F08" : "1C1A12"))
                     .overlay(
-                        RoundedRectangle(cornerRadius: 16)
-                            .stroke(isSelected ? Color.amberAccent : Color.amberCardBorder, lineWidth: isSelected ? 2 : 1)
+                        RoundedRectangle(cornerRadius: 18)
+                            .stroke(isSelected ? Color.amberAccent : Color.amberCardBorder.opacity(0.6),
+                                    lineWidth: isSelected ? 2 : 1)
                     )
             )
         }
+        .buttonStyle(.plain)
     }
 }

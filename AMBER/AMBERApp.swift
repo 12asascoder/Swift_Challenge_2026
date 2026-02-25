@@ -11,7 +11,21 @@ struct AMBERApp: App {
                 .environmentObject(appState)
                 .environmentObject(dataStore)
                 .preferredColorScheme(.dark)
+                .onOpenURL { url in
+                    guard url.scheme == "amber" else { return }
+                    switch url.host {
+                    case "focus": appState.startGame(.focusArena)
+                    case "flow":  appState.startGame(.flowGrid)
+                    default: break
+                    }
+                }
+                .onAppear { applyWidgetSuggestion() }
         }
+    }
+
+    private func applyWidgetSuggestion() {
+        guard let session = SharedStore.load() else { return }
+        appState.widgetStressLevel = session.stressLevel
     }
 }
 

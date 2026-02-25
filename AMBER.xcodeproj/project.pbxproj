@@ -11,50 +11,115 @@
 		091338A233A361587302BA1F /* FocusArenaViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E31DF01CB1ED8586E820C45 /* FocusArenaViewModel.swift */; };
 		0FD8ADA8304B96463B484732 /* GameCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33A1356D2D12D328C29DDC6 /* GameCardView.swift */; };
 		171214F2D09EBADEBE04B37F /* AchievementModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A6BAF32F221A5ECA1BD4D52 /* AchievementModels.swift */; };
+		195AD0B0DB4A177F02B5B166 /* MoodSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5BC0B5E4F569298DD08C5 /* MoodSession.swift */; };
+		199A7E4E009B4D1F88C7B001 /* HarmonyModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8EFFCDC3C3F7092A753EF71 /* HarmonyModeViewModel.swift */; };
 		1BFE46A94738DAA82512E1DC /* StreakBadge.swift in Sources */ = {isa = PBXBuildFile; fileRef = E3DDDAD783FA89558DA89257 /* StreakBadge.swift */; };
+		1CB1456EAEE969BA9098A0AC /* AMBERWidget.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = A1D281CFB54EA418B8A2B859 /* AMBERWidget.appex */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		1D758EA5731DE36E3AE5379F /* StatsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EB07631065B1C04509842D0 /* StatsView.swift */; };
 		20FEE8E6CF58E1BAD7FF9E4C /* AMBERModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = A3B40D2512FEA42779215605 /* AMBERModels.swift */; };
+		22CACA9499A7BCB0CD23C334 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DA60D3AC3A8AC232A33B235C /* WidgetKit.framework */; };
 		2AFAB9CA895CF30313CE7573 /* FocusArenaView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 635DB46354719271BD261CF2 /* FocusArenaView.swift */; };
 		347DC55E3DE3C363DCE1F28F /* AMBERTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1D3B65A844E16062E9A74436 /* AMBERTabBar.swift */; };
 		350208A92CE9E2E165C9F27F /* AvatarMoodCheckInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4461854A65D8531C5F15BD9C /* AvatarMoodCheckInView.swift */; };
+		3A93494E73B9A7320E0C8169 /* HarmonyModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0199D712CC80C8B30AC186A3 /* HarmonyModeView.swift */; };
 		3B2B951DD07603692B155270 /* ProfileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A14606E201D2A7130BB984E /* ProfileView.swift */; };
 		3C8DB44F681D317B2C376529 /* ZenCanvasView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAF0E5AB898FF454220D24EE /* ZenCanvasView.swift */; };
 		429F545A8BCB4695C88F50E5 /* DataStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94CC030399055C43EF16624 /* DataStore.swift */; };
 		442329E0799DD0D8F8636101 /* FlowGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BA45386C3BF02C3BF3602FA /* FlowGridView.swift */; };
 		4638745AEDC24BF268D3DF8D /* AchievementsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D85B1295012CF8D2E711035 /* AchievementsView.swift */; };
+		4B8D609B0A8B84E247560C73 /* StructureModeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC36D316BDFA30D4A9839CF5 /* StructureModeView.swift */; };
+		54D6162EBB96D8EEEB71AFC0 /* WidgetIntents.swift in Sources */ = {isa = PBXBuildFile; fileRef = BD522B2FF96789FC800D91D8 /* WidgetIntents.swift */; };
 		5F17DDD2904E59EE17EC8BBF /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0A6D728E6FD8F3AB819C3FA /* MainView.swift */; };
+		632CAB89CA24E62F129730E4 /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A776F0321D9BE7983E52C6 /* AudioManager.swift */; };
 		691F51149EFB13C9C2B551EF /* HomeHubView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26BA2DDF910842DB0D6E6B77 /* HomeHubView.swift */; };
+		6CF1B83F8EF3FF96F658B73C /* AudioManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 35A776F0321D9BE7983E52C6 /* AudioManager.swift */; };
+		70F30904FBDB1D61A14E1F98 /* StructureModeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8187A1A58BB982ED701CF25 /* StructureModeViewModel.swift */; };
 		90A37421309834F157877DBD /* AMBERApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698B9123593318D7229E4B2 /* AMBERApp.swift */; };
+		9C957DB1B309B3FD7552F289 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7E77922B7CDC4E767E9185 /* SwiftUI.framework */; };
 		D1451A816743CABA9979E658 /* SessionSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB8B7110380DC7BCE2BB69 /* SessionSummaryView.swift */; };
 		D729C0DA87401E8DF4B3EB2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CFCB43EB835867A2822FB1 /* Assets.xcassets */; };
+		E366BD560B3379EA2D61FBF0 /* AMBERWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90515ACE4274C136B5E645F5 /* AMBERWidget.swift */; };
 		EE3E0E34B49B5B14C8E5EA2A /* FlowGridViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 794AE9485DFA2FAD0BAF5A93 /* FlowGridViewModel.swift */; };
+		F079850E1ADA26C408F62756 /* AMBERWidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B252D9BF9AD952B929FE23F /* AMBERWidgetBundle.swift */; };
+		F3157C194267221671F6C2A9 /* MoodSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2F5BC0B5E4F569298DD08C5 /* MoodSession.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		D8B964EB116DAED21EC63436 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 917E814B9A1095E68B823256 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = CBCEE65E9999227A7AB48FAC;
+			remoteInfo = AMBERWidget;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		A9B1267FBE4A59595E539509 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				1CB1456EAEE969BA9098A0AC /* AMBERWidget.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0199D712CC80C8B30AC186A3 /* HarmonyModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyModeView.swift; sourceTree = "<group>"; };
+		02DF8960D077AB19AEADEF8F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		0A6BAF32F221A5ECA1BD4D52 /* AchievementModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementModels.swift; sourceTree = "<group>"; };
+		0C7E77922B7CDC4E767E9185 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
 		1A14606E201D2A7130BB984E /* ProfileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileView.swift; sourceTree = "<group>"; };
 		1D3B65A844E16062E9A74436 /* AMBERTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERTabBar.swift; sourceTree = "<group>"; };
 		26BA2DDF910842DB0D6E6B77 /* HomeHubView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHubView.swift; sourceTree = "<group>"; };
+		35A776F0321D9BE7983E52C6 /* AudioManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioManager.swift; sourceTree = "<group>"; };
 		3BA45386C3BF02C3BF3602FA /* FlowGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowGridView.swift; sourceTree = "<group>"; };
 		3EB07631065B1C04509842D0 /* StatsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StatsView.swift; sourceTree = "<group>"; };
 		4255FF21F5E05B71CBD7643B /* AMBERColors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERColors.swift; sourceTree = "<group>"; };
 		4461854A65D8531C5F15BD9C /* AvatarMoodCheckInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarMoodCheckInView.swift; sourceTree = "<group>"; };
+		4B252D9BF9AD952B929FE23F /* AMBERWidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERWidgetBundle.swift; sourceTree = "<group>"; };
 		4E31DF01CB1ED8586E820C45 /* FocusArenaViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusArenaViewModel.swift; sourceTree = "<group>"; };
 		635DB46354719271BD261CF2 /* FocusArenaView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusArenaView.swift; sourceTree = "<group>"; };
+		636EE09D97325222156FB66A /* AMBERWidget.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AMBERWidget.entitlements; sourceTree = "<group>"; };
+		6F11FE01E3A4C30A9C29A0AA /* AMBER.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = AMBER.entitlements; sourceTree = "<group>"; };
 		794AE9485DFA2FAD0BAF5A93 /* FlowGridViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowGridViewModel.swift; sourceTree = "<group>"; };
+		90515ACE4274C136B5E645F5 /* AMBERWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERWidget.swift; sourceTree = "<group>"; };
 		9353FDC2B01CE0E2204F10A7 /* AMBER.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = AMBER.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9D85B1295012CF8D2E711035 /* AchievementsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AchievementsView.swift; sourceTree = "<group>"; };
+		A1D281CFB54EA418B8A2B859 /* AMBERWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = AMBERWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B40D2512FEA42779215605 /* AMBERModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERModels.swift; sourceTree = "<group>"; };
+		A8187A1A58BB982ED701CF25 /* StructureModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureModeViewModel.swift; sourceTree = "<group>"; };
+		BD522B2FF96789FC800D91D8 /* WidgetIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetIntents.swift; sourceTree = "<group>"; };
 		C94CC030399055C43EF16624 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		D286A4108B2F1DAD255CDAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		D698B9123593318D7229E4B2 /* AMBERApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERApp.swift; sourceTree = "<group>"; };
+		DA60D3AC3A8AC232A33B235C /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		DC36D316BDFA30D4A9839CF5 /* StructureModeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureModeView.swift; sourceTree = "<group>"; };
 		E2EB8B7110380DC7BCE2BB69 /* SessionSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionSummaryView.swift; sourceTree = "<group>"; };
 		E33A1356D2D12D328C29DDC6 /* GameCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCardView.swift; sourceTree = "<group>"; };
 		E3CFCB43EB835867A2822FB1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E3DDDAD783FA89558DA89257 /* StreakBadge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreakBadge.swift; sourceTree = "<group>"; };
+		E8EFFCDC3C3F7092A753EF71 /* HarmonyModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HarmonyModeViewModel.swift; sourceTree = "<group>"; };
 		EAF0E5AB898FF454220D24EE /* ZenCanvasView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ZenCanvasView.swift; sourceTree = "<group>"; };
 		F0A6D728E6FD8F3AB819C3FA /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		F2F5BC0B5E4F569298DD08C5 /* MoodSession.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoodSession.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FD66FC24C4E4E2BA5C1CDFC4 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				22CACA9499A7BCB0CD23C334 /* WidgetKit.framework in Frameworks */,
+				9C957DB1B309B3FD7552F289 /* SwiftUI.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		19FEB1D269A0E0292890D014 /* FlowGrid */ = {
@@ -66,6 +131,15 @@
 			path = FlowGrid;
 			sourceTree = "<group>";
 		};
+		24F156917BDFBCC1D6CC5D75 /* StructureMode */ = {
+			isa = PBXGroup;
+			children = (
+				DC36D316BDFA30D4A9839CF5 /* StructureModeView.swift */,
+				A8187A1A58BB982ED701CF25 /* StructureModeViewModel.swift */,
+			);
+			path = StructureMode;
+			sourceTree = "<group>";
+		};
 		2BED9884100C188951CF69AD /* Profile */ = {
 			isa = PBXGroup;
 			children = (
@@ -74,10 +148,29 @@
 			path = Profile;
 			sourceTree = "<group>";
 		};
+		3668B32DA9BD8FF697FBBE8D /* HarmonyMode */ = {
+			isa = PBXGroup;
+			children = (
+				0199D712CC80C8B30AC186A3 /* HarmonyModeView.swift */,
+				E8EFFCDC3C3F7092A753EF71 /* HarmonyModeViewModel.swift */,
+			);
+			path = HarmonyMode;
+			sourceTree = "<group>";
+		};
+		3D47733DC5825558812F5A88 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				35A776F0321D9BE7983E52C6 /* AudioManager.swift */,
+				F2F5BC0B5E4F569298DD08C5 /* MoodSession.swift */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
 		3E07647AB258067E623F717B /* Products */ = {
 			isa = PBXGroup;
 			children = (
 				9353FDC2B01CE0E2204F10A7 /* AMBER.app */,
+				A1D281CFB54EA418B8A2B859 /* AMBERWidget.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -88,6 +181,15 @@
 				3EB07631065B1C04509842D0 /* StatsView.swift */,
 			);
 			path = Stats;
+			sourceTree = "<group>";
+		};
+		469A33C643451552E3F6A317 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0C7E77922B7CDC4E767E9185 /* SwiftUI.framework */,
+				DA60D3AC3A8AC232A33B235C /* WidgetKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		47FD0257AAAC431E72C11D65 /* Achievements */ = {
@@ -152,6 +254,7 @@
 		85442BA5A09F8AF21D90D3B0 /* AMBER */ = {
 			isa = PBXGroup;
 			children = (
+				6F11FE01E3A4C30A9C29A0AA /* AMBER.entitlements */,
 				D698B9123593318D7229E4B2 /* AMBERApp.swift */,
 				E3CFCB43EB835867A2822FB1 /* Assets.xcassets */,
 				D286A4108B2F1DAD255CDAA7 /* Info.plist */,
@@ -159,6 +262,7 @@
 				83DE27235CF393D59A5FD243 /* Models */,
 				64F5D747DF6D5086AC577B17 /* Persistence */,
 				8F5158A87976983B073019CE /* Screens */,
+				3D47733DC5825558812F5A88 /* Shared */,
 			);
 			path = AMBER;
 			sourceTree = "<group>";
@@ -167,6 +271,8 @@
 			isa = PBXGroup;
 			children = (
 				85442BA5A09F8AF21D90D3B0 /* AMBER */,
+				B6030AE69E54FB6910ED57D8 /* AMBERWidget */,
+				469A33C643451552E3F6A317 /* Frameworks */,
 				3E07647AB258067E623F717B /* Products */,
 			);
 			sourceTree = "<group>";
@@ -178,11 +284,13 @@
 				47FD0257AAAC431E72C11D65 /* Achievements */,
 				19FEB1D269A0E0292890D014 /* FlowGrid */,
 				57FE06736EEF1B6B720EFFA0 /* FocusArena */,
+				3668B32DA9BD8FF697FBBE8D /* HarmonyMode */,
 				D010FE15F353A9217047D97A /* HomeHub */,
 				7D27A7796621E114F9AC441A /* MoodCheckIn */,
 				2BED9884100C188951CF69AD /* Profile */,
 				4AAAB351F34FF7E642BFDB26 /* SessionSummary */,
 				4131E74EF1FD594133C4DADD /* Stats */,
+				24F156917BDFBCC1D6CC5D75 /* StructureMode */,
 				AF857784FFA08C1303DA48A9 /* ZenCanvas */,
 			);
 			path = Screens;
@@ -194,6 +302,18 @@
 				EAF0E5AB898FF454220D24EE /* ZenCanvasView.swift */,
 			);
 			path = ZenCanvas;
+			sourceTree = "<group>";
+		};
+		B6030AE69E54FB6910ED57D8 /* AMBERWidget */ = {
+			isa = PBXGroup;
+			children = (
+				636EE09D97325222156FB66A /* AMBERWidget.entitlements */,
+				90515ACE4274C136B5E645F5 /* AMBERWidget.swift */,
+				4B252D9BF9AD952B929FE23F /* AMBERWidgetBundle.swift */,
+				02DF8960D077AB19AEADEF8F /* Info.plist */,
+				BD522B2FF96789FC800D91D8 /* WidgetIntents.swift */,
+			);
+			path = AMBERWidget;
 			sourceTree = "<group>";
 		};
 		D010FE15F353A9217047D97A /* HomeHub */ = {
@@ -214,6 +334,13 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		"TEMP_B0405CEF-E1C1-4A33-87E2-11CE05009400" /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -223,10 +350,12 @@
 			buildPhases = (
 				267931E3AFDE295EFD7CAFB8 /* Sources */,
 				0894B41B2B30E5A721E13913 /* Resources */,
+				A9B1267FBE4A59595E539509 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				D4D2F7E2C5F3B5231445E076 /* PBXTargetDependency */,
 			);
 			name = AMBER;
 			packageProductDependencies = (
@@ -234,6 +363,24 @@
 			productName = AMBER;
 			productReference = 9353FDC2B01CE0E2204F10A7 /* AMBER.app */;
 			productType = "com.apple.product-type.application";
+		};
+		CBCEE65E9999227A7AB48FAC /* AMBERWidget */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91E2BF04FD49277022A13463 /* Build configuration list for PBXNativeTarget "AMBERWidget" */;
+			buildPhases = (
+				91216060F4AF353F4652B839 /* Sources */,
+				FD66FC24C4E4E2BA5C1CDFC4 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AMBERWidget;
+			packageProductDependencies = (
+			);
+			productName = AMBERWidget;
+			productReference = A1D281CFB54EA418B8A2B859 /* AMBERWidget.appex */;
+			productType = "com.apple.product-type.app-extension";
 		};
 /* End PBXNativeTarget section */
 
@@ -259,6 +406,7 @@
 			projectRoot = "";
 			targets = (
 				47CB003E0995E9BB4B34CACA /* AMBER */,
+				CBCEE65E9999227A7AB48FAC /* AMBERWidget */,
 			);
 		};
 /* End PBXProject section */
@@ -285,6 +433,7 @@
 				347DC55E3DE3C363DCE1F28F /* AMBERTabBar.swift in Sources */,
 				171214F2D09EBADEBE04B37F /* AchievementModels.swift in Sources */,
 				4638745AEDC24BF268D3DF8D /* AchievementsView.swift in Sources */,
+				6CF1B83F8EF3FF96F658B73C /* AudioManager.swift in Sources */,
 				350208A92CE9E2E165C9F27F /* AvatarMoodCheckInView.swift in Sources */,
 				429F545A8BCB4695C88F50E5 /* DataStore.swift in Sources */,
 				442329E0799DD0D8F8636101 /* FlowGridView.swift in Sources */,
@@ -292,17 +441,42 @@
 				2AFAB9CA895CF30313CE7573 /* FocusArenaView.swift in Sources */,
 				091338A233A361587302BA1F /* FocusArenaViewModel.swift in Sources */,
 				0FD8ADA8304B96463B484732 /* GameCardView.swift in Sources */,
+				3A93494E73B9A7320E0C8169 /* HarmonyModeView.swift in Sources */,
+				199A7E4E009B4D1F88C7B001 /* HarmonyModeViewModel.swift in Sources */,
 				691F51149EFB13C9C2B551EF /* HomeHubView.swift in Sources */,
 				5F17DDD2904E59EE17EC8BBF /* MainView.swift in Sources */,
+				F3157C194267221671F6C2A9 /* MoodSession.swift in Sources */,
 				3B2B951DD07603692B155270 /* ProfileView.swift in Sources */,
 				D1451A816743CABA9979E658 /* SessionSummaryView.swift in Sources */,
 				1D758EA5731DE36E3AE5379F /* StatsView.swift in Sources */,
 				1BFE46A94738DAA82512E1DC /* StreakBadge.swift in Sources */,
+				4B8D609B0A8B84E247560C73 /* StructureModeView.swift in Sources */,
+				70F30904FBDB1D61A14E1F98 /* StructureModeViewModel.swift in Sources */,
 				3C8DB44F681D317B2C376529 /* ZenCanvasView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91216060F4AF353F4652B839 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E366BD560B3379EA2D61FBF0 /* AMBERWidget.swift in Sources */,
+				F079850E1ADA26C408F62756 /* AMBERWidgetBundle.swift in Sources */,
+				632CAB89CA24E62F129730E4 /* AudioManager.swift in Sources */,
+				195AD0B0DB4A177F02B5B166 /* MoodSession.swift in Sources */,
+				54D6162EBB96D8EEEB71AFC0 /* WidgetIntents.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D4D2F7E2C5F3B5231445E076 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = CBCEE65E9999227A7AB48FAC /* AMBERWidget */;
+			targetProxy = D8B964EB116DAED21EC63436 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		0AC66D5E7DF24E07C94562BB /* Debug */ = {
@@ -310,6 +484,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AMBER/AMBER.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AMBER/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -324,11 +499,30 @@
 			};
 			name = Debug;
 		};
+		15CD53FD96EB809CFFF7DE65 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AMBERWidget/AMBERWidget.entitlements;
+				INFOPLIST_FILE = AMBERWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amber.app.widget;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
 		1DA1FF2575709767B30577D7 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = AMBER/AMBER.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AMBER/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
@@ -398,6 +592,24 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		6754D9CB1EAE9C57AB4F2E8C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = AMBERWidget/AMBERWidget.entitlements;
+				INFOPLIST_FILE = AMBERWidget/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.amber.app.widget;
+				SDKROOT = iphoneos;
+				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -483,6 +695,15 @@
 			buildConfigurations = (
 				0AC66D5E7DF24E07C94562BB /* Debug */,
 				1DA1FF2575709767B30577D7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		91E2BF04FD49277022A13463 /* Build configuration list for PBXNativeTarget "AMBERWidget" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				15CD53FD96EB809CFFF7DE65 /* Debug */,
+				6754D9CB1EAE9C57AB4F2E8C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;

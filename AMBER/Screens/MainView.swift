@@ -23,9 +23,11 @@ struct MainView: View {
         }
         .fullScreenCover(item: $appState.activeGame) { game in
             switch game {
-            case .focusArena: FocusArenaView()
-            case .flowGrid:   FlowGridView()
-            case .zenCanvas:  ZenCanvasView()
+        case .focusArena:    FocusArenaView()
+            case .flowGrid:      FlowGridView()
+            case .zenCanvas:     ZenCanvasView()
+            case .structureMode: StructureModeView()
+            case .harmonyMode:   HarmonyModeView()
             }
         }
         .sheet(isPresented: $appState.showSessionSummary) {

@@ -56,6 +56,7 @@ struct HomeHubView: View {
                     VStack(spacing: 14) {
                         ForEach(GameType.allCases) { game in
                             GameCardView(game: game) {
+                                AudioManager.shared.fadeOut(duration: 1.0)
                                 appState.startGame(game)
                             }
                         }
@@ -69,5 +70,6 @@ struct HomeHubView: View {
                 }
             }
         }
+        .onAppear { AudioManager.shared.ensurePlaying() }
     }
 }
