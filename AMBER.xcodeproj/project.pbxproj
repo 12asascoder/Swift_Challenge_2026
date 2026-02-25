@@ -334,7 +334,7 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		"TEMP_B0405CEF-E1C1-4A33-87E2-11CE05009400" /* Resources */ = {
+		"TEMP_62A7C36A-7C89-4F0B-8C9E-0B4839D5750A" /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);

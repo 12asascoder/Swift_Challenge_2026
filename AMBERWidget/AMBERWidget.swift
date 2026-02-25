@@ -26,7 +26,6 @@ struct MoodProvider: TimelineProvider {
 // MARK: - Medium Widget View
 struct AMBERMoodWidgetView: View {
     let entry: MoodEntry
-    @Environment(\.widgetFamily) private var family
 
     private var amber: Color { Color(red: 0.9, green: 0.65, blue: 0.1) }
     private var bg:    Color { Color(red: 0.09, green: 0.08, blue: 0.05) }
@@ -211,7 +210,7 @@ struct AMBERLockWidgetView: View {
 
 // MARK: - Medium Widget
 struct AMBERMoodWidget: Widget {
-    let kind = "AMBERMoodWidget"
+    var kind: String { "AMBERMoodWidget" }
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: MoodProvider()) { entry in
             AMBERMoodWidgetView(entry: entry)
@@ -224,7 +223,7 @@ struct AMBERMoodWidget: Widget {
 
 // MARK: - Lock Screen Widget
 struct AMBERLockWidget: Widget {
-    let kind = "AMBERLockWidget"
+    var kind: String { "AMBERLockWidget" }
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: MoodProvider()) { entry in
             AMBERLockWidgetView(entry: entry)
