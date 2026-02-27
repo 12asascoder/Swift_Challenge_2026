@@ -1,0 +1,4 @@
+Target dependency graph (2 targets)
+Target 'AMBER' in project 'AMBER'
+➜ Explicit dependency on target 'AMBERWidget' in project 'AMBER'
+Target 'AMBERWidget' in project 'AMBER' (no dependencies)

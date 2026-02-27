@@ -69,6 +69,7 @@ class AccountPreferences: ObservableObject {
 
 // MARK: - ProfileView
 struct ProfileView: View {
+    @EnvironmentObject var appState: AppState
     @EnvironmentObject var dataStore: DataStore
     @StateObject private var notifSettings  = NotificationSettings()
     @StateObject private var accountPrefs   = AccountPreferences()
@@ -96,11 +97,14 @@ struct ProfileView: View {
                 }
             }
         }
-        .alert("Reset Training Data", isPresented: $showResetAlert) {
-            Button("Reset", role: .destructive) { dataStore.resetAll() }
+        .alert("Reset All Data", isPresented: $showResetAlert) {
+            Button("Reset", role: .destructive) {
+                dataStore.resetAll()
+                appState.showWelcome = true
+            }
             Button("Cancel", role: .cancel) { }
         } message: {
-            Text("This will permanently erase all your XP, sessions, combos and streaks. This cannot be undone.")
+            Text("This will permanently erase all your progress and return you to the welcome screen.")
         }
         .alert("Notifications Disabled", isPresented: $notifPermDenied) {
             Button("Open Settings") {
@@ -318,7 +322,7 @@ struct ProfileView: View {
             HStack(spacing: 8) {
                 Image(systemName: "trash.fill")
                     .font(.system(size: 14))
-                Text("RESET TRAINING DATA")
+                Text("RESET")
                     .font(.system(size: 14, weight: .bold))
                     .kerning(0.5)
             }

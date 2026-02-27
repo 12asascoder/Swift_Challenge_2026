@@ -1,0 +1,59 @@
+{
+  "" : {
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget-primary.dia",
+    "emit-module-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget-primary-emit-module.d",
+    "emit-module-diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget-primary-emit-module.dia",
+    "pch" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget-primary-Bridging-header.pch",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget-primary.swiftdeps"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Shared/AudioManager.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AudioManager.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AudioManager.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AudioManager.dia",
+    "index-unit-output-path" : "/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AudioManager.o",
+    "llvm-bc" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AudioManager.bc",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AudioManager.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AudioManager.swiftdeps",
+    "swiftmodule" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AudioManager~partial.swiftmodule"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Shared/MoodSession.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/MoodSession.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/MoodSession.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/MoodSession.dia",
+    "index-unit-output-path" : "/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/MoodSession.o",
+    "llvm-bc" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/MoodSession.bc",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/MoodSession.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/MoodSession.swiftdeps",
+    "swiftmodule" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/MoodSession~partial.swiftmodule"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBERWidget/AMBERWidget.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget.dia",
+    "index-unit-output-path" : "/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget.o",
+    "llvm-bc" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget.bc",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget.swiftdeps",
+    "swiftmodule" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidget~partial.swiftmodule"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBERWidget/AMBERWidgetBundle.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidgetBundle.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidgetBundle.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidgetBundle.dia",
+    "index-unit-output-path" : "/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidgetBundle.o",
+    "llvm-bc" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidgetBundle.bc",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidgetBundle.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidgetBundle.swiftdeps",
+    "swiftmodule" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/AMBERWidgetBundle~partial.swiftmodule"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBERWidget/WidgetIntents.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/WidgetIntents.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/WidgetIntents.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/WidgetIntents.dia",
+    "index-unit-output-path" : "/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/WidgetIntents.o",
+    "llvm-bc" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/WidgetIntents.bc",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/WidgetIntents.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/WidgetIntents.swiftdeps",
+    "swiftmodule" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBERWidget.build/Objects-normal/arm64/WidgetIntents~partial.swiftmodule"
+  }
+}

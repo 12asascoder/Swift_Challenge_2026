@@ -6,7 +6,7 @@
 	<dict>
 		<key>AMBER.debug.dylib</key>
 		<data>
-		eeqVAJKWMNWhBwpo5URUCzr54Js=
+		RoMmMM/YNFGZEIWCgKt+KPocKJA=
 		</data>
 		<key>AppIcon60x60@2x.png</key>
 		<data>
@@ -24,7 +24,7 @@
 		<data>
 		Q3e1qSX1v6c/JiVoJwj9cLINxl4=
 		</data>
-		<key>Music/Muisc1.mp3</key>
+		<key>Music/Music1.mp3</key>
 		<data>
 		sp9SisE3/3l87UI72Yco9PPA3DQ=
 		</data>
@@ -38,11 +38,11 @@
 		</data>
 		<key>PlugIns/AMBERWidget.appex/AMBERWidget</key>
 		<data>
-		8yjVw1UhigsBXhAvqjvE9W8XxTM=
+		MppxfGbHjUA69KK5Pu2j7UvgkHg=
 		</data>
 		<key>PlugIns/AMBERWidget.appex/AMBERWidget.debug.dylib</key>
 		<data>
-		XFRAVIAIBitGJYPygnTA2rFi0Tg=
+		aLTVoM6iGR/qQD6Fs/cEC8aXk2Y=
 		</data>
 		<key>PlugIns/AMBERWidget.appex/Info.plist</key>
 		<data>
@@ -50,7 +50,7 @@
 		</data>
 		<key>PlugIns/AMBERWidget.appex/Metadata.appintents/extract.actionsdata</key>
 		<data>
-		23n8WsfZiLvqygNCmGjixTWV+mc=
+		XF+C0iPc4t6KL/L7j8NTW93qLI4=
 		</data>
 		<key>PlugIns/AMBERWidget.appex/Metadata.appintents/version.json</key>
 		<data>
@@ -58,7 +58,7 @@
 		</data>
 		<key>PlugIns/AMBERWidget.appex/_CodeSignature/CodeResources</key>
 		<data>
-		hyW7FKxJvBFsLfLAdfEfyNSu1VE=
+		t4CpQaUxpiIcoYoRRjXVAqHFc3A=
 		</data>
 		<key>PlugIns/AMBERWidget.appex/__preview.dylib</key>
 		<data>
@@ -75,7 +75,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			rj7RVt0vtKAR/mZ3YcphVt2y8vj4aqqpzLyw7AH4Xbc=
+			yX2bbj+FK1CqnyjoJdRqw6rNkBExixslVaGmKm0jfIk=
 			</data>
 		</dict>
 		<key>AppIcon60x60@2x.png</key>
@@ -99,7 +99,7 @@
 			Nz4+8tj8f/Ald9C9m0SqwhCCQOsomE6h2Qw31k66NBU=
 			</data>
 		</dict>
-		<key>Music/Muisc1.mp3</key>
+		<key>Music/Music1.mp3</key>
 		<dict>
 			<key>hash2</key>
 			<data>
@@ -117,14 +117,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			IbVepMJVgoXRZw5hPfqTKGXtKvL6tNSjJDwVnB91am4=
+			f2TFbNF4kcg9727+UKkeFueCZ3F8VXLyVR+mVdaMMys=
 			</data>
 		</dict>
 		<key>PlugIns/AMBERWidget.appex/AMBERWidget.debug.dylib</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			KPE9XS/9n1inlkLstpLZrUw5x1rx5VCF7gYRZ3bjf/8=
+			D94apZvod5JjQ3KIBHKywYv3+IFjYkO5y9cFRE1SFME=
 			</data>
 		</dict>
 		<key>PlugIns/AMBERWidget.appex/Info.plist</key>
@@ -138,7 +138,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			thYmxB/vUQG5vTmbBbuemcdhxsWLneiBW7CJDURmtXs=
+			IEpg3hfWNGEDSm/3DKtnS90OmgzrWzx5Jqs7UTvhOR0=
 			</data>
 		</dict>
 		<key>PlugIns/AMBERWidget.appex/Metadata.appintents/version.json</key>
@@ -152,7 +152,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			aAa6OoAu9Oa57nP70q4UhtDpqjX0HRgEOgrSwWQmWSc=
+			gcHGTLXEqzRAqqCQTOopMP3ceEeQqDq/ZJnNEP6wgAI=
 			</data>
 		</dict>
 		<key>PlugIns/AMBERWidget.appex/__preview.dylib</key>

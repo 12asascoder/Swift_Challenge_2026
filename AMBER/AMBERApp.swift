@@ -38,7 +38,10 @@ struct RootNavigationView: View {
 
     var body: some View {
         ZStack {
-            if appState.showMoodCheckIn {
+            if appState.showWelcome {
+                WelcomeView()
+                    .transition(.move(edge: .bottom))
+            } else if appState.showMoodCheckIn {
                 AvatarMoodCheckInView()
                     .transition(.move(edge: .bottom))
             } else {
@@ -46,6 +49,7 @@ struct RootNavigationView: View {
                     .transition(.opacity)
             }
         }
+        .animation(.easeInOut(duration: 0.4), value: appState.showWelcome)
         .animation(.easeInOut(duration: 0.4), value: appState.showMoodCheckIn)
     }
 }

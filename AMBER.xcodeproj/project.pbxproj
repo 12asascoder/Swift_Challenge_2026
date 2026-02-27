@@ -37,6 +37,7 @@
 		88DF6834007EDC98EEFD402B /* Music in Resources */ = {isa = PBXBuildFile; fileRef = DCA37CB11AEF057F42393CB9 /* Music */; };
 		90A37421309834F157877DBD /* AMBERApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D698B9123593318D7229E4B2 /* AMBERApp.swift */; };
 		9C957DB1B309B3FD7552F289 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0C7E77922B7CDC4E767E9185 /* SwiftUI.framework */; };
+		C310FCD22A93CCF1ED56691D /* WelcomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDB50097A86BC580E66AB2B /* WelcomeView.swift */; };
 		D1451A816743CABA9979E658 /* SessionSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2EB8B7110380DC7BCE2BB69 /* SessionSummaryView.swift */; };
 		D729C0DA87401E8DF4B3EB2C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E3CFCB43EB835867A2822FB1 /* Assets.xcassets */; };
 		E366BD560B3379EA2D61FBF0 /* AMBERWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90515ACE4274C136B5E645F5 /* AMBERWidget.swift */; };
@@ -94,6 +95,7 @@
 		A1D281CFB54EA418B8A2B859 /* AMBERWidget.appex */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = "wrapper.app-extension"; path = AMBERWidget.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		A3B40D2512FEA42779215605 /* AMBERModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AMBERModels.swift; sourceTree = "<group>"; };
 		A8187A1A58BB982ED701CF25 /* StructureModeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StructureModeViewModel.swift; sourceTree = "<group>"; };
+		AFDB50097A86BC580E66AB2B /* WelcomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeView.swift; sourceTree = "<group>"; };
 		BD522B2FF96789FC800D91D8 /* WidgetIntents.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetIntents.swift; sourceTree = "<group>"; };
 		C94CC030399055C43EF16624 /* DataStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStore.swift; sourceTree = "<group>"; };
 		D286A4108B2F1DAD255CDAA7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
@@ -284,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				F0A6D728E6FD8F3AB819C3FA /* MainView.swift */,
+				AFDB50097A86BC580E66AB2B /* WelcomeView.swift */,
 				47FD0257AAAC431E72C11D65 /* Achievements */,
 				19FEB1D269A0E0292890D014 /* FlowGrid */,
 				57FE06736EEF1B6B720EFFA0 /* FocusArena */,
@@ -337,7 +340,7 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		"TEMP_778A966B-3E6D-4CDA-BB6B-09958FF59EDC" /* Resources */ = {
+		"TEMP_F333BD64-7EFA-4775-81D1-0B194845C2E7" /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -456,6 +459,7 @@
 				1BFE46A94738DAA82512E1DC /* StreakBadge.swift in Sources */,
 				4B8D609B0A8B84E247560C73 /* StructureModeView.swift in Sources */,
 				70F30904FBDB1D61A14E1F98 /* StructureModeViewModel.swift in Sources */,
+				C310FCD22A93CCF1ED56691D /* WelcomeView.swift in Sources */,
 				3C8DB44F681D317B2C376529 /* ZenCanvasView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

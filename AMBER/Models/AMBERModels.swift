@@ -93,6 +93,7 @@ enum AMBERTab: CaseIterable {
 
 // MARK: - App State
 class AppState: ObservableObject {
+    @Published var showWelcome: Bool
     @Published var showMoodCheckIn: Bool
     @Published var selectedMood: MoodType? = nil
     @Published var activeGame: GameType? = nil
@@ -115,16 +116,23 @@ class AppState: ObservableObject {
     }
 
     init() {
-        let today   = Calendar.current.startOfDay(for: Date())
-        let lastStr = UserDefaults.standard.object(forKey: "amber_lastCheckin") as? Date
-        if let last = lastStr, Calendar.current.startOfDay(for: last) == today {
+        let hasName = UserDefaults.standard.string(forKey: "amber_userName") != nil
+        if !hasName {
+            showWelcome = true
             showMoodCheckIn = false
-            if let savedMoodStr = UserDefaults.standard.string(forKey: "amber_lastMood"),
-               let savedMood = MoodType(rawValue: savedMoodStr) {
-                self.selectedMood = savedMood
-            }
         } else {
-            showMoodCheckIn = true
+            showWelcome = false
+            let today   = Calendar.current.startOfDay(for: Date())
+            let lastStr = UserDefaults.standard.object(forKey: "amber_lastCheckin") as? Date
+            if let last = lastStr, Calendar.current.startOfDay(for: last) == today {
+                showMoodCheckIn = false
+                if let savedMoodStr = UserDefaults.standard.string(forKey: "amber_lastMood"),
+                   let savedMood = MoodType(rawValue: savedMoodStr) {
+                    self.selectedMood = savedMood
+                }
+            } else {
+                showMoodCheckIn = true
+            }
         }
     }
 

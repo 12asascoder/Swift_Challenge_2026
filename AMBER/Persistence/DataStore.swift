@@ -136,10 +136,12 @@ class DataStore: ObservableObject {
     func resetAll() {
         let keys = ["amber_xp","amber_level","amber_streak","amber_sessions","amber_bestCombo",
                     "amber_bestFlowScore","amber_bestAccuracy","amber_sumReaction",
-                    "amber_reactionCount","amber_lastSession","amber_moodTrend"]
+                    "amber_reactionCount","amber_lastSession","amber_moodTrend",
+                    "amber_userName", "amber_joinDate", "amber_lastCheckin", "amber_lastMood"]
         keys.forEach { ud.removeObject(forKey: $0) }
         xp = 0; level = 1; streak = 0; totalSessions = 0; bestCombo = 0
         bestFlowScore = 0; bestFocusAccuracy = 0; sumReactionMs = 0; reactionCount = 0
+        userName = "Alex Storm"
         moodTrend = [0.1, 0.2, 0.2, 0.3, 0.3, 0.4, 0.4]
     }
 

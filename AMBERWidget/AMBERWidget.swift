@@ -14,12 +14,34 @@ struct MoodProvider: TimelineProvider {
         MoodEntry(date: Date(), session: nil, state: .moodPrompt)
     }
     func getSnapshot(in context: Context, completion: @escaping (MoodEntry) -> Void) {
-        completion(MoodEntry(date: Date(), session: SharedStore.load(), state: SharedStore.currentWidgetState()))
+        let session = SharedStore.load()
+        if let s = session, Date().timeIntervalSince(s.date) > 60 {
+            completion(MoodEntry(date: Date(), session: nil, state: .moodPrompt))
+        } else {
+            completion(MoodEntry(date: Date(), session: session, state: SharedStore.currentWidgetState()))
+        }
     }
     func getTimeline(in context: Context, completion: @escaping (Timeline<MoodEntry>) -> Void) {
-        let entry    = MoodEntry(date: Date(), session: SharedStore.load(), state: SharedStore.currentWidgetState())
+        let session = SharedStore.load()
+        var entries: [MoodEntry] = []
+        
+        if let s = session {
+            let age = Date().timeIntervalSince(s.date)
+            if age > 60 {
+                // Already expired
+                entries.append(MoodEntry(date: Date(), session: nil, state: .moodPrompt))
+            } else {
+                // Still valid, show current, schedule reset at s.date + 60
+                entries.append(MoodEntry(date: Date(), session: s, state: SharedStore.currentWidgetState()))
+                let resetDate = s.date.addingTimeInterval(60)
+                entries.append(MoodEntry(date: resetDate, session: nil, state: .moodPrompt))
+            }
+        } else {
+            entries.append(MoodEntry(date: Date(), session: nil, state: .moodPrompt))
+        }
+        
         let midnight = Calendar.current.startOfDay(for: Date().addingTimeInterval(86400))
-        completion(Timeline(entries: [entry], policy: .after(midnight)))
+        completion(Timeline(entries: entries, policy: .after(midnight)))
     }
 }
 
