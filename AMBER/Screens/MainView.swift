@@ -4,6 +4,7 @@ import SwiftUI
 struct MainView: View {
     @EnvironmentObject var appState: AppState
     @EnvironmentObject var dataStore: DataStore
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -34,6 +35,20 @@ struct MainView: View {
             SessionSummaryView()
                 .presentationDetents([.large])
                 .presentationDragIndicator(.hidden)
+        }
+        .onAppear {
+            if let m = appState.selectedMood, m == .low || m == .overwhelmed {
+                AudioManager.shared.playCalmLoop(volume: 0.35)
+            }
+        }
+        .onChange(of: scenePhase) { newPhase in
+            if newPhase == .active {
+                if let m = appState.selectedMood, m == .low || m == .overwhelmed {
+                    AudioManager.shared.playCalmLoop(volume: 0.35)
+                }
+            } else if newPhase == .background {
+                AudioManager.shared.stop()
+            }
         }
     }
 }

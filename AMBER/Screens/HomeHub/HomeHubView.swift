@@ -74,6 +74,12 @@ struct HomeHubView: View {
                 }
             }
         }
-        .onAppear { AudioManager.shared.ensurePlaying() }
+        .onAppear {
+            if let m = appState.selectedMood, m == .low || m == .overwhelmed {
+                AudioManager.shared.playCalmLoop(volume: 0.35)
+            } else {
+                AudioManager.shared.fadeOut(duration: 1.0)
+            }
+        }
     }
 }

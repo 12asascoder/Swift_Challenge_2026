@@ -119,6 +119,10 @@ class AppState: ObservableObject {
         let lastStr = UserDefaults.standard.object(forKey: "amber_lastCheckin") as? Date
         if let last = lastStr, Calendar.current.startOfDay(for: last) == today {
             showMoodCheckIn = false
+            if let savedMoodStr = UserDefaults.standard.string(forKey: "amber_lastMood"),
+               let savedMood = MoodType(rawValue: savedMoodStr) {
+                self.selectedMood = savedMood
+            }
         } else {
             showMoodCheckIn = true
         }
@@ -127,6 +131,7 @@ class AppState: ObservableObject {
     func completeMoodCheckIn(mood: MoodType) {
         selectedMood = mood
         UserDefaults.standard.set(Date(), forKey: "amber_lastCheckin")
+        UserDefaults.standard.set(mood.rawValue, forKey: "amber_lastMood")
         withAnimation { showMoodCheckIn = false }
     }
     func startGame(_ game: GameType)  { activeGame = game }
