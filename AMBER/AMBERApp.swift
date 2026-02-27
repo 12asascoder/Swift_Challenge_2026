@@ -1,4 +1,5 @@
 import SwiftUI
+import WidgetKit
 
 @main
 struct AMBERApp: App {
@@ -19,7 +20,10 @@ struct AMBERApp: App {
                     default: break
                     }
                 }
-                .onAppear { applyWidgetSuggestion() }
+                .onAppear { 
+                    applyWidgetSuggestion() 
+                    WidgetCenter.shared.reloadAllTimelines()
+                }
         }
     }
 

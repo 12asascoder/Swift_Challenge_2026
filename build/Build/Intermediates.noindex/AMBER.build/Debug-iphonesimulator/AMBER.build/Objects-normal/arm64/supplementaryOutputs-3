@@ -1,0 +1,23 @@
+{
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Persistence/DataStore.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/DataStore.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/DataStore.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/DataStore.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/DataStore.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/DataStore.swiftdeps"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Screens/MoodCheckIn/AvatarMoodCheckInView.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AvatarMoodCheckInView.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AvatarMoodCheckInView.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AvatarMoodCheckInView.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AvatarMoodCheckInView.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AvatarMoodCheckInView.swiftdeps"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Shared/AudioManager.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AudioManager.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AudioManager.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AudioManager.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AudioManager.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AudioManager.swiftdeps"
+  }
+}

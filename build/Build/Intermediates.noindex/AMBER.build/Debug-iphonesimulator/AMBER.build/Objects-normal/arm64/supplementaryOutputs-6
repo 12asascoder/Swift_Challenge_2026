@@ -1,0 +1,23 @@
+{
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Screens/HarmonyMode/HarmonyModeViewModel.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeViewModel.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeViewModel.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeViewModel.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeViewModel.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeViewModel.swiftdeps"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Screens/HomeHub/HomeHubView.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HomeHubView.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HomeHubView.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HomeHubView.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HomeHubView.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HomeHubView.swiftdeps"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Screens/MainView.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/MainView.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/MainView.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/MainView.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/MainView.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/MainView.swiftdeps"
+  }
+}

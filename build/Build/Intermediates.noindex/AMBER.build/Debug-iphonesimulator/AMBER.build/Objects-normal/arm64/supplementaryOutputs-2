@@ -1,0 +1,23 @@
+{
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/DesignSystem/Components/AMBERTabBar.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AMBERTabBar.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AMBERTabBar.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AMBERTabBar.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AMBERTabBar.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AMBERTabBar.swiftdeps"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Models/AchievementModels.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementModels.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementModels.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementModels.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementModels.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementModels.swiftdeps"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Screens/Achievements/AchievementsView.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementsView.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementsView.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementsView.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementsView.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/AchievementsView.swiftdeps"
+  }
+}

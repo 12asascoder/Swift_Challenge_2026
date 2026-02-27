@@ -1,0 +1,23 @@
+{
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/DesignSystem/Components/GameCardView.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/GameCardView.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/GameCardView.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/GameCardView.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/GameCardView.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/GameCardView.swiftdeps"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Screens/FocusArena/FocusArenaViewModel.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/FocusArenaViewModel.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/FocusArenaViewModel.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/FocusArenaViewModel.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/FocusArenaViewModel.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/FocusArenaViewModel.swiftdeps"
+  },
+  "/Users/arnav/Code/Swift_challenge_2026/AMBER/Screens/HarmonyMode/HarmonyModeView.swift" : {
+    "const-values" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeView.swiftconstvalues",
+    "dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeView.d",
+    "diagnostics" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeView.dia",
+    "object" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeView.o",
+    "swift-dependencies" : "/Users/arnav/Code/Swift_challenge_2026/build/Build/Intermediates.noindex/AMBER.build/Debug-iphonesimulator/AMBER.build/Objects-normal/arm64/HarmonyModeView.swiftdeps"
+  }
+}

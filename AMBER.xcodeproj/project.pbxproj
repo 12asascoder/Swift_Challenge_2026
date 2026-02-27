@@ -337,7 +337,7 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
-		"TEMP_AB35ED14-5F73-46D7-A5DF-476970F6B23C" /* Resources */ = {
+		"TEMP_778A966B-3E6D-4CDA-BB6B-09958FF59EDC" /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 			);
@@ -596,6 +596,7 @@
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -679,6 +680,7 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.9;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};

@@ -186,7 +186,17 @@ struct ProfileView: View {
             Text(dataStore.joinDateString)
                 .font(.system(size: 13))
                 .foregroundColor(.amberSubtext)
-                .padding(.bottom, 24)
+            
+            Button { showAccountSheet = true } label: {
+                Text("Edit Profile")
+                    .font(.system(size: 13, weight: .bold))
+                    .padding(.horizontal, 16)
+                    .padding(.vertical, 8)
+                    .background(Capsule().stroke(Color.amberAccent.opacity(0.6), lineWidth: 1))
+                    .foregroundColor(.amberAccent)
+            }
+            .padding(.top, 4)
+            .padding(.bottom, 24)
         }
     }
 

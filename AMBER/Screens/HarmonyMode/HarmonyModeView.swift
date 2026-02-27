@@ -38,7 +38,12 @@ struct HarmonyModeView: View {
     // MARK: - Header
     private var headerBar: some View {
         HStack {
-            Button { appState.activeGame = nil } label: {
+            Button {
+                let s = vm.solveCount * 150
+                let xp = DataStore.xpFormula(baseScore: s, difficulty: appState.gameDifficulty, streakBonus: 0)
+                if s > 0 { dataStore.addSession(score: s, xpGained: xp) }
+                appState.activeGame = nil
+            } label: {
                 Image(systemName: "chevron.left").foregroundColor(.white)
                     .frame(width: 34, height: 34).background(Circle().fill(Color.amberCard))
             }
@@ -207,7 +212,12 @@ struct HarmonyModeView: View {
                         .background(RoundedRectangle(cornerRadius: 14).fill(Color.amberAccent))
                         .padding(.horizontal, 30)
                 }
-                Button { vm.solved = false; appState.activeGame = nil } label: {
+                Button {
+                    let s = vm.solveCount * 150
+                    let xp = DataStore.xpFormula(baseScore: s, difficulty: appState.gameDifficulty, streakBonus: 0)
+                    if s > 0 { dataStore.addSession(score: s, xpGained: xp) }
+                    vm.solved = false; appState.activeGame = nil
+                } label: {
                     Text("Exit Session")
                         .font(.system(size: 15)).foregroundColor(.amberSubtext)
                 }

@@ -3,6 +3,7 @@ import Charts
 
 struct StatsView: View {
     @EnvironmentObject var dataStore: DataStore
+    @EnvironmentObject var appState: AppState
     @Environment(\.horizontalSizeClass) var sizeClass
     @State private var ringAnimate = false
 
@@ -22,8 +23,12 @@ struct StatsView: View {
                             .font(.system(size: 17, weight: .bold))
                             .foregroundColor(.white)
                         Spacer()
-                        Image(systemName: "gearshape.fill")
-                            .foregroundColor(.amberSubtext)
+                        Button {
+                            withAnimation(.easeInOut) { appState.selectedTab = .profile }
+                        } label: {
+                            Image(systemName: "gearshape.fill")
+                                .foregroundColor(.amberSubtext)
+                        }
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 16)

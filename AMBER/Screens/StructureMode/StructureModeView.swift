@@ -74,6 +74,9 @@ struct StructureModeView: View {
     private var headerBar: some View {
         HStack {
             Button {
+                let s = vm.linesCleared * 10
+                let xp = DataStore.xpFormula(baseScore: s, difficulty: appState.gameDifficulty, streakBonus: 0)
+                if s > 0 { dataStore.addSession(score: s, xpGained: xp) }
                 appState.activeGame = nil
             } label: {
                 Image(systemName: "chevron.left")
@@ -419,10 +422,10 @@ struct StructureModeView: View {
 
             Button {
                 vm.sessionEnded = false
-                appState.completeSession(
-                    score: vm.linesCleared * 10,
-                    xp: vm.linesCleared * 5
-                )
+                let s = vm.linesCleared * 10
+                let xp = DataStore.xpFormula(baseScore: s, difficulty: appState.gameDifficulty, streakBonus: 0)
+                dataStore.addSession(score: s, xpGained: xp)
+                appState.completeSession(score: s, xp: xp)
             } label: {
                 Text("Done")
                     .font(AMBERFont.rounded(16, weight: .semibold))

@@ -30,9 +30,13 @@ struct HomeHubView: View {
                                 .foregroundColor(.white)
                         }
                         Spacer()
-                        Image(systemName: "gearshape.fill")
-                            .foregroundColor(.amberSubtext)
-                            .font(.system(size: 20))
+                        Button {
+                            withAnimation(.easeInOut) { appState.selectedTab = .profile }
+                        } label: {
+                            Image(systemName: "gearshape.fill")
+                                .foregroundColor(.amberSubtext)
+                                .font(.system(size: 20))
+                        }
                     }
                     .padding(.horizontal, 20)
                     .padding(.top, 16)

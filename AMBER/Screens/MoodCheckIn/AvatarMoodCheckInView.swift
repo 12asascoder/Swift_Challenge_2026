@@ -32,14 +32,10 @@ struct AvatarMoodCheckInView: View {
             VStack(spacing: 0) {
                 navBar
 
-                // Greeting card (amber bg, dark text)
+                // Greeting card (amber bg, dark text) with Emoji
                 greetingCard
                     .padding(.horizontal, 20)
                     .padding(.top, 16)
-
-                // 3D emoji preview box
-                emojiBox
-                    .padding(.top, 18)
 
                 // SELECT YOUR VIBE label
                 Text("SELECT YOUR VIBE")
@@ -54,9 +50,6 @@ struct AvatarMoodCheckInView: View {
                     .padding(.horizontal, 20)
 
                 Spacer(minLength: 16)
-
-                // Bottom tab bar mimic (cosmetic, matches design reference)
-                bottomBar
             }
         }
         .onAppear {
@@ -96,12 +89,17 @@ struct AvatarMoodCheckInView: View {
                     .foregroundColor(.white)
             }
             Spacer()
-            ZStack {
-                Circle().stroke(Color.amberAccent.opacity(0.6), lineWidth: 1.5)
-                    .frame(width: 32, height: 32)
-                Image(systemName: "gearshape.fill")
-                    .font(.system(size: 13))
-                    .foregroundColor(.amberAccent)
+            Button {
+                appState.completeMoodCheckIn(mood: .okayish)
+                withAnimation(.easeInOut) { appState.selectedTab = .profile }
+            } label: {
+                ZStack {
+                    Circle().stroke(Color.amberAccent.opacity(0.6), lineWidth: 1.5)
+                        .frame(width: 32, height: 32)
+                    Image(systemName: "gearshape.fill")
+                        .font(.system(size: 13))
+                        .foregroundColor(.amberAccent)
+                }
             }
         }
         .padding(.horizontal, 20)
@@ -111,18 +109,23 @@ struct AvatarMoodCheckInView: View {
 
     // MARK: - Greeting card
     private var greetingCard: some View {
-        ZStack(alignment: .bottomLeading) {
+        ZStack(alignment: .center) {
             RoundedRectangle(cornerRadius: 20)
                 .fill(Color(hex: "E8A020"))
-            Text(dialogues[dialogueIndex])
-                .font(.system(size: 22, weight: .bold))
-                .foregroundColor(Color(hex: "1A1200"))
-                .multilineTextAlignment(.center)
-                .padding(.horizontal, 20)
-                .padding(.vertical, 24)
-                .frame(maxWidth: .infinity)
+            
+            VStack(spacing: 24) {
+                emojiBox
+                    .padding(.top, 32)
+                
+                Text(dialogues[dialogueIndex])
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundColor(Color(hex: "1A1200"))
+                    .multilineTextAlignment(.center)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 24)
+            }
         }
-        .frame(maxWidth: .infinity, minHeight: 110)
+        .frame(maxWidth: .infinity)
         .onTapGesture {
             withAnimation(.easeInOut(duration: 0.2)) {
                 dialogueIndex = (dialogueIndex + 1) % dialogues.count
@@ -164,39 +167,7 @@ struct AvatarMoodCheckInView: View {
         }
     }
 
-    // MARK: - Cosmetic bottom tab bar
-    private var bottomBar: some View {
-        HStack(spacing: 0) {
-            tabItem(icon: "house.fill",   label: "HOME",     active: false)
-            tabItem(icon: "sparkles",     label: "MOOD",     active: false)
-            // Centre FAB
-            ZStack {
-                Circle().fill(Color.amberAccent).frame(width: 54, height: 54)
-                    .shadow(color: Color.amberAccent.opacity(0.5), radius: 8)
-                Image(systemName: "plus")
-                    .font(.system(size: 22, weight: .bold)).foregroundColor(.black)
-            }
-            .frame(maxWidth: .infinity)
-            tabItem(icon: "chart.bar.fill", label: "INSIGHTS", active: false)
-            tabItem(icon: "person.fill",    label: "PROFILE",  active: false)
-        }
-        .padding(.horizontal, 10)
-        .padding(.bottom, 20)
-        .padding(.top, 8)
-        .background(Color(hex: "141209"))
-    }
 
-    private func tabItem(icon: String, label: String, active: Bool) -> some View {
-        VStack(spacing: 3) {
-            Image(systemName: icon)
-                .font(.system(size: 19))
-                .foregroundColor(active ? .amberAccent : Color.gray.opacity(0.7))
-            Text(label)
-                .font(.system(size: 8, weight: .semibold)).kerning(0.5)
-                .foregroundColor(active ? .amberAccent : Color.gray.opacity(0.6))
-        }
-        .frame(maxWidth: .infinity)
-    }
 }
 
 // MARK: - Mood button card
